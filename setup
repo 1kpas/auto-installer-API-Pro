@@ -59,8 +59,8 @@ function creditos_msg() {
 
 # Function to ask if the user wants to install another application
 function requisitar_outra_instalacao() {
-    read -p "Deseja instalar outra aplicação? (Y/N): " confirmacao
-    if [[ "$confirmacao" =~ ^[Yy]$ ]]; then
+    read -p "Deseja instalar outra aplicação? (Y/N): " choice
+    if [[ "$choice" =~ ^[Yy]$ ]]; then
         menu_principal
     else
         echo "Finalizando o instalador."
@@ -112,8 +112,8 @@ function verificar_container_postgres() {
 # Function to get Postgres password
 function pegar_senha_postgres() {
     # Assume that the postgres password is stored in /root/dados_vps/dados_postgres
-    if [ -f /root/dados_vps/dados_postgres ]; then
-        senha_postgres=$(grep 'Senha do Postgres' /root/dados_vps/dados_postgres | awk '{print $4}')
+    if [ -f dados_vps/dados_postgres ]; then
+        senha_postgres=$(grep 'Senha:' dados_vps/dados_postgres | awk '{print $2}')
     else
         echo "Arquivo de dados do Postgres não encontrado."
         senha_postgres=$(openssl rand -hex 12)
@@ -159,10 +159,11 @@ networks:
     external: true
     name: $nome_rede_interna
 EOL
-    docker stack deploy -c postgres.yaml postgres
+    STACK_NAME="postgres"
+    stack_editavel
     # Save Postgres password
     mkdir -p dados_vps
-    echo "Senha do Postgres: $senha_postgres" > dados_vps/dados_postgres
+    echo "Senha: $senha_postgres" > dados_vps/dados_postgres
 }
 
 # Function to wait for Postgres to be ready
@@ -203,21 +204,227 @@ networks:
     external: true
     name: $nome_rede_interna
 EOL
-    docker stack deploy -c redis.yaml redis
+    STACK_NAME="redis"
+    stack_editavel
 }
 
-# Function to allow editing the stack before deployment
+# Function to allow editing the stack before deployment and deploy via Portainer
 function stack_editavel() {
+    verificar_portainer_e_fazer_login
     echo "Deseja editar a stack antes de implantá-la? (Y/N)"
     read -r edit_stack
     if [[ "$edit_stack" =~ ^[Yy]$ ]]; then
         nano "${STACK_NAME}.yaml"
     fi
-    docker stack deploy --prune --resolve-image always -c "${STACK_NAME}.yaml" "${STACK_NAME}"
+
+    # Deploy via Portainer API
+    echo "Fazendo deploy da stack ${STACK_NAME} via Portainer..."
+    deploy_stack_via_portainer "${STACK_NAME}.yaml" "$STACK_NAME"
     if [ $? -eq 0 ]; then
         echo "Deploy da stack ${STACK_NAME} realizado com sucesso."
     else
         echo "Erro ao realizar o deploy da stack ${STACK_NAME}."
+    fi
+}
+
+# Function to verify Portainer installation and login
+function verificar_portainer_e_fazer_login() {
+    # Verifica se o Docker está instalado
+    if ! command -v docker &> /dev/null; then
+        clear
+        echo -e "${vermelho}Erro:${reset} Docker não está instalado. Por favor, instale o Docker antes de continuar."
+        exit 1
+    fi
+
+    # Verifica se o Portainer está instalado
+    if ! docker ps -a --format "{{.Names}}" | grep -q "portainer"; then
+        clear
+        echo -e "${vermelho}Erro:${reset} Portainer não está instalado. Por favor, instale o Portainer antes de continuar."
+        exit 1
+    fi
+
+    verificar_arquivo
+}
+
+# Function to verify if Portainer credentials file exists
+function verificar_arquivo() {
+    sudo apt install jq -y > /dev/null 2>&1
+    if [ ! -f "dados_vps/dados_portainer" ]; then
+        nome_credenciais
+        criar_arquivo
+    else
+        verificar_campos
+    fi
+}
+
+# Function to create Portainer credentials file
+function criar_arquivo() {
+    if [ -f "dados_vps/dados_portainer" ]; then
+        rm "dados_vps/dados_portainer"
+        echo "Arquivo existente removido."
+    fi
+
+    nome_credenciais
+    echo -e "${branco}Passo${amarelo} 1/3${reset}"
+    read -p "Digite a URL do Portainer (ex: portainer.seudominio.com): " PORTAINER_URL
+    echo ""
+
+    echo -e "${branco}Passo${amarelo} 2/3${reset}"
+    read -p "Digite seu Usuário (ex: admin): " USUARIO
+    echo ""
+
+    echo -e "${branco}Passo${amarelo} 3/3${reset}"
+    echo -e "${branco}Obs:${reset} A senha não aparecerá ao digitar"
+    read -s -p "Digite a Senha (ex: Senha123): " SENHA
+    echo ""
+
+    verificar_token "$PORTAINER_URL" "$USUARIO" "$SENHA" true
+}
+
+# Function to verify Portainer credentials
+function verificar_campos() {
+    PORTAINER_URL=$(grep -oP '(?<=Dominio do portainer: ).*' dados_vps/dados_portainer)
+    USUARIO=$(grep -oP '(?<=Usuario: ).*' dados_vps/dados_portainer)
+    SENHA=$(grep -oP '(?<=Senha: ).*' dados_vps/dados_portainer)
+
+    if [ -z "$USUARIO" ] || [ -z "$SENHA" ]; then
+        nome_credenciais
+        echo -e "${branco}Passo${amarelo} 1/3${reset}"
+        read -p "Digite a URL do Portainer (ex: portainer.seudominio.com): " PORTAINER_URL
+        echo ""
+
+        echo -e "${branco}Passo${amarelo} 2/3${reset}"
+        read -p "Digite seu Usuário (ex: admin): " USUARIO
+        echo ""
+
+        echo -e "${branco}Passo${amarelo} 3/3${reset}"
+        echo -e "${branco}Obs:${reset} A senha não aparecerá ao digitar"
+        read -s -p "Digite a Senha (ex: Senha123): " SENHA
+        echo ""
+
+        ATUALIZAR="true"
+        verificar_token "$PORTAINER_URL" "$USUARIO" "$SENHA" true
+    elif [ "$USUARIO" == "Precisa criar dentro do portainer" ] || [ "$SENHA" == "Precisa criar dentro do portainer" ]; then
+        nome_credenciais
+        echo -e "${branco}Passo${amarelo} 1/3${reset}"
+        read -p "Digite a URL do Portainer (ex: portainer.seudominio.com): " PORTAINER_URL
+        echo ""
+
+        echo -e "${branco}Passo${amarelo} 2/3${reset}"
+        read -p "Digite seu Usuário (ex: admin): " USUARIO
+        echo ""
+
+        echo -e "${branco}Passo${amarelo} 3/3${reset}"
+        echo -e "${branco}Obs:${reset} A senha não aparecerá ao digitar"
+        read -s -p "Digite a Senha (ex: Senha123): " SENHA
+        echo ""
+
+        verificar_token "$PORTAINER_URL" "$USUARIO" "$SENHA" true
+    else
+        verificar_token "$PORTAINER_URL" "$USUARIO" "$SENHA" false
+    fi
+}
+
+# Function to verify if the token is valid
+function verificar_token() {
+    PORTAINER_URL="$1"
+    USUARIO="$2"
+    SENHA="$3"
+    ATUALIZAR="$4"
+    TENTATIVAS=0
+    MAX_TENTATIVAS=5
+
+    while [ $TENTATIVAS -lt $MAX_TENTATIVAS ]; do
+        TENTATIVAS=$((TENTATIVAS+1))
+
+        RESPONSE=$(curl -s -w "\n%{http_code}" -k -X POST -H "Content-Type: application/json" -d "{\"username\":\"$USUARIO\",\"password\":\"$SENHA\"}" "https://$PORTAINER_URL/api/auth")
+        TOKEN=$(echo "$RESPONSE" | sed '$d' | jq -r '.jwt')
+        HTTP_STATUS=$(echo "$RESPONSE" | tail -n1)
+
+        if [ "$HTTP_STATUS" -eq 200 ] && [ ! -z "$TOKEN" ]; then
+
+            if [ "$ATUALIZAR" == true ]; then
+                atualizar_arquivo
+            fi
+
+            break
+        else
+            if [ $TENTATIVAS -gt 1 ]; then
+                clear
+                echo -e "${vermelho}Erro:${reset} Não foi possível autenticar suas credenciais. Por favor, tente novamente."
+                echo "Tentativa: $TENTATIVAS/$MAX_TENTATIVAS"
+
+                sleep 3
+
+            else
+                clear
+                nome_credenciais
+            fi
+
+            if [ $TENTATIVAS -lt $MAX_TENTATIVAS ]; then
+
+                nome_credenciais
+                echo -e "${branco}Passo${amarelo} 1/3${reset}"
+                read -p "Digite a URL do Portainer (ex: portainer.seudominio.com): " PORTAINER_URL
+                echo ""
+
+                echo -e "${branco}Passo${amarelo} 2/3${reset}"
+                read -p "Digite seu Usuário (ex: admin): " USUARIO
+                echo ""
+
+                echo -e "${branco}Passo${amarelo} 3/3${reset}"
+                echo -e "${branco}Obs:${reset} A senha não aparecerá ao digitar"
+                read -s -p "Digite a Senha (ex: Senha123): " SENHA
+                echo ""
+                ATUALIZAR="true"
+            else
+                clear
+                echo -e "${vermelho}Erro:${reset} Você atingiu o limite máximo de tentativas ($TENTATIVAS/$MAX_TENTATIVAS)."
+                echo "Tente novamente quando lembrar da sua credencial!"
+                sleep 5
+                clear
+                break
+            fi
+        fi
+    done
+}
+
+# Function to update Portainer credentials file
+function atualizar_arquivo() {
+    mkdir -p dados_vps
+    echo -e "[ PORTAINER ]\nDominio do portainer: $PORTAINER_URL\n\nUsuario: $USUARIO\n\nSenha: $SENHA\n" > "dados_vps/dados_portainer"
+    echo -e "\nArquivo de dados do Portainer atualizado com sucesso!"
+}
+
+# Function to display credentials prompt
+function nome_credenciais() {
+    echo -e "${verde}=== ${BRAND_NAME} - Credenciais do Portainer ===${reset}"
+}
+
+# Function to deploy stack via Portainer API
+function deploy_stack_via_portainer() {
+    local stack_file="$1"
+    local stack_name="$2"
+
+    # Obter TOKEN
+    RESPONSE=$(curl -s -w "\n%{http_code}" -k -X POST -H "Content-Type: application/json" -d "{\"username\":\"$USUARIO\",\"password\":\"$SENHA\"}" "https://$PORTAINER_URL/api/auth")
+    TOKEN=$(echo "$RESPONSE" | sed '$d' | jq -r '.jwt')
+    HTTP_STATUS=$(echo "$RESPONSE" | tail -n1)
+
+    # Obter endpoint ID
+    ENDPOINT_ID=$(curl -k -s -X GET -H "Authorization: Bearer $TOKEN" "https://$PORTAINER_URL/api/endpoints" | jq -r '.[0].Id')
+
+    # Obter Swarm ID
+    SWARM_ID=$(curl -k -s -X GET -H "Authorization: Bearer $TOKEN" "https://$PORTAINER_URL/api/endpoints/$ENDPOINT_ID/docker/swarm" | jq -r .ID)
+
+    # Deploy da stack
+    response=$(curl -s -k -X POST -H "Authorization: Bearer $TOKEN" -F "Name=$stack_name" -F "file=@$stack_file" -F "SwarmID=$SWARM_ID" -F "endpointId=$ENDPOINT_ID" "https://$PORTAINER_URL/api/stacks/create/swarm/file")
+
+    if echo "$response" | grep -q "\"Id\""; then
+        return 0
+    else
+        echo "Erro ao implantar a stack via Portainer."
+        return 1
     fi
 }
 
@@ -412,7 +619,8 @@ networks:
     name: $nome_rede_interna
 EOL
 
-    docker stack deploy --prune --resolve-image always -c traefik.yaml traefik
+    STACK_NAME="traefik"
+    stack_editavel
 
     echo ""
     echo -e "${branco}• ESPERANDO O TRAEFIK ESTAR ONLINE ${amarelo}[6/8]${reset}"
@@ -476,7 +684,8 @@ volumes:
     name: portainer_data
 EOL
 
-    docker stack deploy --prune --resolve-image always -c portainer.yaml portainer
+    STACK_NAME="portainer"
+    stack_editavel
 
     echo ""
     echo -e "${branco}• ESPERANDO O PORTAINER ESTAR ONLINE ${amarelo}[8/8]${reset}"
@@ -521,6 +730,14 @@ function instalar_chatwoot() {
     clear
     nome_chatwoot
     preencha_as_info
+
+    # Ativa a função dados para pegar os dados da vps
+    if [ -f dados_vps/dados_vps ]; then
+        source dados_vps/dados_vps
+    else
+        echo "Dados da VPS não encontrados. Por favor, instale o Traefik e Portainer primeiro."
+        requisitar_outra_instalacao
+    fi
 
     while true; do
         # Prompt for Chatwoot domain
@@ -854,6 +1071,14 @@ function instalar_n8n() {
     clear
     nome_n8n
     preencha_as_info
+
+    # Ativa a função dados para pegar os dados da vps
+    if [ -f dados_vps/dados_vps ]; then
+        source dados_vps/dados_vps
+    else
+        echo "Dados da VPS não encontrados. Por favor, instale o Traefik e Portainer primeiro."
+        requisitar_outra_instalacao
+    fi
 
     while true; do
         # Prompt for N8N editor domain
