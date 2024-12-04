@@ -1255,7 +1255,7 @@ echo ""
 
 echo -e "\e[97mPasso$amarelo 2/5\e[0m"
 echo -e "$amarelo--> Caso não tiver um usuario do email, use o proprio email abaixo"
-echo -en "\e[33mDigite o usuário de Email (ex: oriondesign ou contato@daniloborgueti.com): \e[0m" && read -r user_teste
+echo -en "\e[33mDigite o usuário de Email (ex: danilo ou contato@daniloborgueti.com): \e[0m" && read -r user_teste
 echo ""
 
 echo -e "\e[97mPasso$amarelo 3/5\e[0m"
@@ -1310,7 +1310,7 @@ sudo apt-get update > /dev/null 2>&1
 sudo apt-get install swaks -y > /dev/null 2>&1
 
 msg="Se você está lendo isso, o seu SMTP está funcionando =D.
-By: OrionDesign"
+By: danilo"
 
 if swaks --to "$email_teste" --from "$email_teste" --server "$host_teste" --port "$porta_teste" --auth LOGIN --auth-user "$user_teste" --auth-password "$senha_teste" --tls --body "$msg"; then
     sleep 2
@@ -1377,7 +1377,7 @@ while true; do
     ## Pergunta o Nome do Servidor
     echo -e "\e[97mPasso$amarelo 2/4\e[0m"
     echo -e "$amarelo--> Não pode conter Espaços e/ou cartacteres especiais"
-    echo -en "\e[33mEscolha um nome para o seu servidor (ex: OrionDesign): \e[0m" && read -r nome_servidor
+    echo -en "\e[33mEscolha um nome para o seu servidor (ex: danilo): \e[0m" && read -r nome_servidor
     echo ""
     
     ## Pergunta o nome da Rede Interna
@@ -2713,7 +2713,7 @@ while true; do
     ##Pergunta o usuário do Email SMTP
     echo -e "\e[97mPasso$amarelo 3/6\e[0m"
     echo -e "$amarelo--> Caso não tiver um usuario do email, use o proprio email abaixo"
-    echo -en "\e[33mDigite o Usuário para SMTP (ex: oriondesign ou contato@daniloborgueti.com): \e[0m" && read -r user_smtp_chatwoot
+    echo -en "\e[33mDigite o Usuário para SMTP (ex: danilo ou contato@daniloborgueti.com): \e[0m" && read -r user_smtp_chatwoot
     echo ""
     
     ## Pergunta a senha do SMTP
@@ -3909,7 +3909,7 @@ services:
       ## Configuração do Cliente
       ## Pegue a versão em: https://web.whatsapp.com/check-update?version=0&platform=web
       - CONFIG_SESSION_PHONE_VERSION=2.3000.1015901307
-      - CONFIG_SESSION_PHONE_CLIENT=OrionDesign
+      - CONFIG_SESSION_PHONE_CLIENT=danilo
       - CONFIG_SESSION_PHONE_NAME=Chrome
       
       ## Configuração do Banco de Dados
@@ -4256,14 +4256,14 @@ services:
 
 ## --------------------------- ORION --------------------------- ##
 
-  evolution_oriondesign:
+  evolution_danilo:
     image: atendai/evolution-api:latest ## Versão da Evolution API
     command: ["node", "./dist/src/main.js"]
 
     volumes:
-    - evolution_oriondesign_instances:/evolution/instances
-    - evolution_oriondesign_store:/evolution/store
-    - evolution_oriondesign_views:/evolution/views
+    - evolution_danilo_instances:/evolution/instances
+    - evolution_danilo_store:/evolution/store
+    - evolution_danilo_views:/evolution/views
 
     networks:
       - $nome_rede_interna ## Nome da rede interna
@@ -4278,7 +4278,7 @@ services:
     - AUTHENTICATION_EXPOSE_IN_FETCH_INSTANCES=true
 
     ## Configurações
-    - CONFIG_SESSION_PHONE_CLIENT=OrionDesign ## Nome que aparece no celular
+    - CONFIG_SESSION_PHONE_CLIENT=danilo ## Nome que aparece no celular
     - CONFIG_SESSION_PHONE_NAME=chrome
 
     ## Definir versão do Whatsapp Web
@@ -4376,26 +4376,26 @@ services:
         - node.role == manager
       labels:
       - traefik.enable=1
-      - traefik.http.routers.evolution_oriondesign.rule=Host(\`$url_evolution\`) ## Url da aplicação
-      - traefik.http.routers.evolution_oriondesign.entrypoints=websecure
-      - traefik.http.routers.evolution_oriondesign.priority=1
-      - traefik.http.routers.evolution_oriondesign.tls.certresolver=letsencryptresolver
-      - traefik.http.routers.evolution_oriondesign.service=evolution_oriondesign
-      - traefik.http.services.evolution_oriondesign.loadbalancer.server.port=8080
-      - traefik.http.services.evolution_oriondesign.loadbalancer.passHostHeader=1
+      - traefik.http.routers.evolution_danilo.rule=Host(\`$url_evolution\`) ## Url da aplicação
+      - traefik.http.routers.evolution_danilo.entrypoints=websecure
+      - traefik.http.routers.evolution_danilo.priority=1
+      - traefik.http.routers.evolution_danilo.tls.certresolver=letsencryptresolver
+      - traefik.http.routers.evolution_danilo.service=evolution_danilo
+      - traefik.http.services.evolution_danilo.loadbalancer.server.port=8080
+      - traefik.http.services.evolution_danilo.loadbalancer.passHostHeader=1
 
 ## --------------------------- ORION --------------------------- ##
 
 volumes:
-  evolution_oriondesign_instances:
+  evolution_danilo_instances:
     external: true
-    name: evolution_oriondesign_instances
-  evolution_oriondesign_store:
+    name: evolution_danilo_instances
+  evolution_danilo_store:
     external: true
-    name: evolution_oriondesign_store
-  evolution_oriondesign_views:
+    name: evolution_danilo_store
+  evolution_danilo_views:
     external: true
-    name: evolution_oriondesign_views
+    name: evolution_danilo_views
 networks:
   $nome_rede_interna: ## Nome da rede interna
     name: $nome_rede_interna ## Nome da rede interna
@@ -4636,7 +4636,7 @@ services:
       ## Configuração do Cliente
       ## Pegue a versão em: https://web.whatsapp.com/check-update?version=0&platform=web
       - CONFIG_SESSION_PHONE_VERSION=2.3000.1015901307
-      - CONFIG_SESSION_PHONE_CLIENT=OrionDesign
+      - CONFIG_SESSION_PHONE_CLIENT=danilo
       - CONFIG_SESSION_PHONE_NAME=Chrome
       
       ## Configuração do Banco de Dados
@@ -4917,7 +4917,7 @@ while true; do
     ##Pergunta o usuário do Email SMTP
     echo -e "\e[97mPasso$amarelo 4/7\e[0m"
     echo -e "$amarelo--> Caso não tiver um usuario do email, use o proprio email abaixo"
-    echo -en "\e[33mDigite o Usuário para SMTP (ex: oriondesign ou contato@daniloborgueti.com): \e[0m" && read -r usuario_smtp_n8n
+    echo -en "\e[33mDigite o Usuário para SMTP (ex: danilo ou contato@daniloborgueti.com): \e[0m" && read -r usuario_smtp_n8n
     echo ""
     
     ## Pergunta a senha do SMTP
@@ -5491,28 +5491,28 @@ chatwoot.mail() {
     fi
     
     # Baixa os novos arquivos
-    wget -O confirmation_instructions.html.erb https://github.com/oriondesign2015/SetupOrion/raw/main/Extras/Chatwoot/emails/confirmation_instructions.html.erb > /dev/null 2>&1
+    wget -O confirmation_instructions.html.erb https://github.com/danilo2015/SetupOrion/raw/main/Extras/Chatwoot/emails/confirmation_instructions.html.erb > /dev/null 2>&1
     if [ $? -eq 0 ]; then
         echo "5/9 - [ OK ]"
     else
         echo "5/9 - [ OFF ]"
         echo "Não foi possivel baixar email."
     fi
-    wget -O password_change.html.erb https://github.com/oriondesign2015/SetupOrion/raw/main/Extras/Chatwoot/emails/password_change.html.erb > /dev/null 2>&1
+    wget -O password_change.html.erb https://github.com/danilo2015/SetupOrion/raw/main/Extras/Chatwoot/emails/password_change.html.erb > /dev/null 2>&1
     if [ $? -eq 0 ]; then
         echo "6/9 - [ OK ]"
     else
         echo "6/9 - [ OFF ]"
         echo "Não foi possivel baixar email."
     fi
-    wget -O reset_password_instructions.html.erb https://github.com/oriondesign2015/SetupOrion/raw/main/Extras/Chatwoot/emails/reset_password_instructions.html.erb > /dev/null 2>&1
+    wget -O reset_password_instructions.html.erb https://github.com/danilo2015/SetupOrion/raw/main/Extras/Chatwoot/emails/reset_password_instructions.html.erb > /dev/null 2>&1
     if [ $? -eq 0 ]; then
         echo "7/9 - [ OK ]"
     else
         echo "7/9 - [ OFF ]"
         echo "Não foi possivel baixar email."
     fi
-    wget -O unlock_instructions.html.erb https://github.com/oriondesign2015/SetupOrion/raw/main/Extras/Chatwoot/emails/unlock_instructions.html.erb > /dev/null 2>&1
+    wget -O unlock_instructions.html.erb https://github.com/danilo2015/SetupOrion/raw/main/Extras/Chatwoot/emails/unlock_instructions.html.erb > /dev/null 2>&1
     if [ $? -eq 0 ]; then
         echo "8/9 - [ OK ]"
     else
@@ -5582,28 +5582,28 @@ chatwoot.n.mail() {
     fi
     
     # Baixa os novos arquivos
-    wget -O confirmation_instructions.html.erb https://github.com/oriondesign2015/SetupOrion/raw/main/Extras/Chatwoot/emails/confirmation_instructions.html.erb > /dev/null 2>&1
+    wget -O confirmation_instructions.html.erb https://github.com/danilo2015/SetupOrion/raw/main/Extras/Chatwoot/emails/confirmation_instructions.html.erb > /dev/null 2>&1
     if [ $? -eq 0 ]; then
         echo "5/9 - [ OK ]"
     else
         echo "5/9 - [ OFF ]"
         echo "Não foi possivel baixar email."
     fi
-    wget -O password_change.html.erb https://github.com/oriondesign2015/SetupOrion/raw/main/Extras/Chatwoot/emails/password_change.html.erb > /dev/null 2>&1
+    wget -O password_change.html.erb https://github.com/danilo2015/SetupOrion/raw/main/Extras/Chatwoot/emails/password_change.html.erb > /dev/null 2>&1
     if [ $? -eq 0 ]; then
         echo "6/9 - [ OK ]"
     else
         echo "6/9 - [ OFF ]"
         echo "Não foi possivel baixar email."
     fi
-    wget -O reset_password_instructions.html.erb https://github.com/oriondesign2015/SetupOrion/raw/main/Extras/Chatwoot/emails/reset_password_instructions.html.erb > /dev/null 2>&1
+    wget -O reset_password_instructions.html.erb https://github.com/danilo2015/SetupOrion/raw/main/Extras/Chatwoot/emails/reset_password_instructions.html.erb > /dev/null 2>&1
     if [ $? -eq 0 ]; then
         echo "7/9 - [ OK ]"
     else
         echo "7/9 - [ OFF ]"
         echo "Não foi possivel baixar email."
     fi
-    wget -O unlock_instructions.html.erb https://github.com/oriondesign2015/SetupOrion/raw/main/Extras/Chatwoot/emails/unlock_instructions.html.erb > /dev/null 2>&1
+    wget -O unlock_instructions.html.erb https://github.com/danilo2015/SetupOrion/raw/main/Extras/Chatwoot/emails/unlock_instructions.html.erb > /dev/null 2>&1
     if [ $? -eq 0 ]; then
         echo "8/9 - [ OK ]"
     else
