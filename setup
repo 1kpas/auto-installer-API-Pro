@@ -4,7 +4,6 @@ versao()
 
 ## Marca
 
-marca="WhatsTracking"
 ## Cores do Setup
 
 amarelo="\e[33m"
