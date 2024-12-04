@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# Função versao
-versao() {
-    echo -e "${verde}Versão do script: 1.0.0${reset}"
-}
-
 amarelo="\e[33m"
 verde="\e[32m"
 branco="\e[97m"
@@ -177,7 +172,6 @@ nome_menu() {
     echo -e "$branco  ╚═╝     ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚══════╝\e[0m"
     echo ""
     echo -e "$amarelo===================================================================================================\e[0m"
-    versao
     echo ""
 }
 
@@ -384,7 +378,6 @@ menu_instalador_pg_1(){
     # echo -e "${amarelo}[ 20 ]${reset} - ${branco}Woofed CRM                             ${verde}| ${reset}  ${amarelo}[ 43 ]${reset} - ${branco}LangFlow${reset}"
     # echo -e "${amarelo}[ 21 ]${reset} - ${branco}Formbricks                             ${verde}| ${reset}  ${amarelo}[ 44 ]${reset} - ${branco}OpenProject${reset}"
     echo -e ""
-    echo -e "${branco}<-- Digite ${amarelo}P1 ${branco}para ir para pagina 1             ${amarelo}|${branco}              Digite ${amarelo}P2${branco} para ir para pagina 2 -->${reset}"
     echo -e ""
 }
 
@@ -1328,8 +1321,6 @@ else
     echo -e "\e[33mOs dados informados\e[91m NÃO estão funcionando corretamente.\e[33m Por favor, verifique os dados e tente novamente.\e[0m"
 fi
 
-creditos_msg
-
 read -p "Deseja instalar outra aplicação? (Y/N): " choice
     if [ "$choice" = "Y" ] || [ "$choice" = "y" ]; then
         return
@@ -1883,8 +1874,6 @@ echo -e "\e[33mcaso exceda esse tempo, você precisara de voltar no menu anterio
 echo -e "\e[33me no menu de ferramentas digitar: \e[97mportainer.restart\e[0m"
 echo ""
 
-## Creditos do instalador
-creditos_msg
 
 ## Pergunta se deseja instalar outra aplicação
 requisitar_outra_instalacao
@@ -2201,8 +2190,6 @@ echo ""
 echo -e "\e[97mSenha:\e[33m $senha_pgvector\e[0m"
 echo ""
 
-## Creditos do instalador
-creditos_msg
 
 ## Pergunta se deseja instalar outra aplicação
 requisitar_outra_instalacao
@@ -2419,9 +2406,6 @@ echo ""
 
 echo -e "\e[97mPorta:\e[33m 6379\e[0m"
 echo ""
-
-## Creditos do instalador
-creditos_msg
 
 ## Pergunta se deseja instalar outra aplicação
 requisitar_outra_instalacao
@@ -2656,8 +2640,6 @@ echo ""
 echo -e "\e[97mSenha:\e[33m $senha_mysql\e[0m"
 echo ""
 
-## Creditos do instalador
-creditos_msg
 
 ## Pergunta se deseja instalar outra aplicação
 requisitar_outra_instalacao
@@ -3203,9 +3185,6 @@ echo ""
 echo -e "\e[97mSenha:\e[33m Precisa criar dentro do Chatwoot\e[0m"
 echo ""
 
-## Creditos do instalador
-creditos_msg
-
 ## Pergunta se deseja instalar outra aplicação
 requisitar_outra_instalacao
 }
@@ -3738,8 +3717,6 @@ echo ""
 echo -e "\e[97mSenha:\e[33m Precisa criar dentro do Chatwoot\e[0m"
 echo ""
 
-## Creditos do instalador
-creditos_msg
 
 ## Pergunta se deseja instalar outra aplicação
 requisitar_outra_instalacao
@@ -4140,8 +4117,6 @@ echo ""
 echo -e "\e[97mGLOBAL API KEY:\e[33m $apikeyglobal\e[0m"
 echo ""
 
-## Creditos do instalador
-creditos_msg
 
 ## Pergunta se deseja instalar outra aplicação
 requisitar_outra_instalacao
@@ -4465,8 +4440,6 @@ echo ""
 echo -e "\e[97mGLOBAL API KEY:\e[33m $apikeyglobal\e[0m"
 echo ""
 
-## Creditos do instalador
-creditos_msg
 
 ## Pergunta se deseja instalar outra aplicação
 requisitar_outra_instalacao
@@ -4866,9 +4839,6 @@ echo ""
 
 echo -e "\e[97mGLOBAL API KEY:\e[33m $apikeyglobal\e[0m"
 echo ""
-
-## Creditos do instalador
-creditos_msg
 
 ## Pergunta se deseja instalar outra aplicação
 requisitar_outra_instalacao
@@ -5357,8 +5327,6 @@ echo ""
 echo -e "\e[33mSenha:\e[97m Precisa criar no primeiro acesso do N8N\e[0m"
 echo ""
 
-## Creditos do instalador
-creditos_msg
 
 ## Pergunta se deseja instalar outra aplicação
 requisitar_outra_instalacao
@@ -5777,10 +5745,7 @@ portainer.reset() {
     echo ""
     
     echo -e "\e[97mNova Senha:\e[33m $PASSWORD\e[0m"
-    echo ""
-    
-    ## Creditos do instalador
-    creditos_msg
+    echo ""  
 
     read -p "Deseja voltar ao menu principal? (Y/N): " choice
     if [ "$choice" = "Y" ] || [ "$choice" = "y" ]; then
