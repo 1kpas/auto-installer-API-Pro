@@ -2,10 +2,6 @@
 
 versao() 
 
-## Marca
-
-## Cores do Setup
-
 amarelo="\e[33m"
 verde="\e[32m"
 branco="\e[97m"
