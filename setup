@@ -1,6 +1,9 @@
 #!/bin/bash
 
-versao() 
+# Função versao
+versao() {
+    echo -e "${verde}Versão do script: 1.0.0${reset}"
+}
 
 amarelo="\e[33m"
 verde="\e[32m"
