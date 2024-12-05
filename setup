@@ -4771,7 +4771,7 @@ while true; do
     nome_menu
     menu_instalador
 
-    read -p "Digite o NÚMERO da opção desejada ou COMANDO oculto: " opcao
+    read -p "Digite o Numero de qual Stack deseja Instalar: " opcao
 
     case $opcao in
 
