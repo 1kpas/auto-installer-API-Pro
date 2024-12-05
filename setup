@@ -139,10 +139,6 @@ nome_credenciais() {
     echo ""
     info_credenciais
 }
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-##                                         marca                                        ##
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-
 ## Titulos
 
 ## Nome do instalador
@@ -700,10 +696,6 @@ atualizar_arquivo() {
     echo -e "\nArquivo de dados do Portainer atualizado com sucesso!"
 }
 
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-##                                         marca                                        ##
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-
 ## Verificadores
 
 
@@ -959,11 +951,6 @@ requisitar_outra_instalacao(){
     fi
 }
 
-
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-##                                         marca                                        ##
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-
 ## Pegar informações
 
 
@@ -1031,10 +1018,6 @@ pegar_senha_minio() {
 pegar_link_s3() {
     url_s3=$(grep "MINIO_SERVER_URL" /root/minio.yaml | awk -F '=' '{print $2}' | sed 's/https:\/\///')
 }
-
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-##                                         marca                                        ##
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
 
 ## Criadores de banco de dados Postgres
 
@@ -1132,11 +1115,6 @@ criar_banco_pgvector_da_stack () {
         fi
     done
 }
-
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-##                                         marca                                        ##
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-
 ## Criadores de banco de dados Mysql
 
 ## Criar banco do Mautic
@@ -1185,11 +1163,6 @@ criar_banco_mysql_da_stack() {
         fi
     done
 }
-
-
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-##                                         marca                                        ##
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
 
 ## Instalação das Ferramentas
 
@@ -1607,8 +1580,6 @@ cat > traefik.yaml << EOL
 version: "3.7"
 services:
 
-## --------------------------- ORION --------------------------- ##
-
   traefik:
     image: traefik:v2.11.2
     command:
@@ -1656,8 +1627,6 @@ services:
         mode: host
     networks:
       - $nome_rede_interna ## Nome da rede interna
-
-## --------------------------- ORION --------------------------- ##
 
 volumes:
   vol_shared:
@@ -1715,8 +1684,6 @@ cat > portainer.yaml <<EOL
 version: "3.7"
 services:
 
-## --------------------------- ORION --------------------------- ##
-
   agent:
     image: portainer/agent:latest ## Versão do portainer
 
@@ -1731,8 +1698,6 @@ services:
       mode: global
       placement:
         constraints: [node.platform.os == linux]
-
-## --------------------------- ORION --------------------------- ##
 
   portainer:
     image: portainer/portainer-ce:latest
@@ -1759,8 +1724,6 @@ services:
         - "traefik.docker.network=$nome_rede_interna" ## Nome da rede interna
         - "traefik.http.routers.portainer.entrypoints=websecure"
         - "traefik.http.routers.portainer.priority=1"
-
-## --------------------------- ORION --------------------------- ##
 
 networks:
   $nome_rede_interna: ## Nome da rede interna
@@ -1865,8 +1828,6 @@ cat > postgres.yaml <<EOL
 version: "3.7"
 services:
 
-## --------------------------- ORION --------------------------- ##
-
   postgres:
     image: postgres:14 ## Versão do postgres
 
@@ -1895,8 +1856,6 @@ services:
         limits:
           cpus: "1"
           memory: 1024M
-
-## --------------------------- ORION --------------------------- ##
 
 volumes:
   postgres_data:
@@ -1962,8 +1921,6 @@ cat > redis.yaml <<EOL
 version: "3.7"
 services:
 
-## --------------------------- ORION --------------------------- ##
-
   redis:
     image: redis:latest  ## Versão do Redis
     command: [
@@ -1990,8 +1947,6 @@ services:
         limits:
           cpus: "1"
           memory: 2048M
-
-## --------------------------- ORION --------------------------- ##
 
 volumes:
   redis_data:
@@ -2056,8 +2011,6 @@ cat > redis.yaml <<EOL
 version: "3.7"
 services:
 
-## --------------------------- ORION --------------------------- ##
-
   redis:
     image: redis:latest  ## Versão do Redis
     command: [
@@ -2084,8 +2037,6 @@ services:
         limits:
           cpus: "1"
           memory: 2048M
-
-## --------------------------- ORION --------------------------- ##
 
 volumes:
   redis_data:
