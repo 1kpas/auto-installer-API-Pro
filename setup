@@ -342,52 +342,18 @@ nome_botpress() {
 menu_instalador() {
   case $menu_instalador in
     1) menu_instalador_pg_1 ;;
-    # 2) menu_instalador_pg_2 ;;
     *) echo "Erro ao listar menu..." ;;
   esac
 }
 
 menu_instalador_pg_1(){
-    # echo -e "${amarelo}[ 00 ]${reset} - ${branco}Testar SMTP                          "
-    # echo -e "${amarelo}[ 00 ]${reset} - ${branco}Testar SMTP                            ${verde}| ${reset}  ${amarelo}[ 22 ]${reset} - ${branco}NocoDB${reset}"
     echo -e "${amarelo}[ 01 ]${reset} - ${branco}Traefik & Portainer                   "
-    # echo -e "${amarelo}[ 01 ]${reset} - ${branco}Traefik & Portainer                    ${verde}| ${reset}  ${amarelo}[ 23 ]${reset} - ${branco}Langfuse${reset}"
     echo -e "${amarelo}[ 02 ]${reset} - ${branco}Chatwoot                              "
-    # echo -e "${amarelo}[ 02 ]${reset} - ${branco}Chatwoot                               ${verde}| ${reset}  ${amarelo}[ 24 ]${reset} - ${branco}Metabase${reset}"
-    # echo -e "${branco}  '-->${amarelo}[ 2.1 ]${reset} - ${branco}Chatwoot (ARM)              "
-    # echo -e "${branco}  '-->${amarelo}[ 2.1 ]${reset} - ${branco}Chatwoot (ARM)                  ${verde}| ${reset}  ${amarelo}[ 25 ]${reset} - ${branco}Odoo${reset}"
-    echo -e "${amarelo}[ 03 ]${reset} -  ${branco}Evolution API                         ${verde}| ${reset}  ${amarelo}[ 26 ]${reset} - ${branco}Chatwoot Nestor${reset}"
-    # echo -e "${amarelo}[ 04 ]${reset} - ${branco}MinIO                                  ${verde}| ${reset}  ${amarelo}[ 27 ]${reset} - ${branco}Uno API${reset}"
-    # echo -e "${amarelo}[ 05 ]${reset} - ${branco}Typebot                                ${verde}| ${reset}  ${amarelo}[ 28 ]${reset} - ${branco}N8N + Nodes Quepasa${reset}"
+    echo -e "${amarelo}[ 03 ]${reset} - ${branco}Evolution API                         "
     echo -e "${amarelo}[ 06 ]${reset} - ${branco}N8N                                   "
-    # echo -e "${amarelo}[ 06 ]${reset} - ${branco}N8N                                    ${verde}| ${reset}  ${amarelo}[ 29 ]${reset} - ${branco}Quepasa API${reset}"
-    # echo -e "${amarelo}[ 07 ]${reset} - ${branco}Flowise                                ${verde}| ${reset}  ${amarelo}[ 30 ]${reset} - ${branco}Docuseal${reset}"
-    # echo -e "${amarelo}[ 08 ]${reset} - ${branco}PgAdmin 4                             "
-    # echo -e "${amarelo}[ 08 ]${reset} - ${branco}PgAdmin 4                              ${verde}| ${reset}  ${amarelo}[ 31 ]${reset} - ${branco}Grafana + Prometheus + cAdvisor${reset}"
-    # echo -e "${amarelo}[ 09 ]${reset} - ${branco}Nocobase                               ${verde}| ${reset}  ${amarelo}[ 32 ]${reset} - ${branco}Dify AI${reset}"
-    # echo -e "${amarelo}[ 10 ]${reset} - ${branco}Botpress                               ${verde}| ${reset}  ${amarelo}[ 33 ]${reset} - ${branco}Ollama${reset}"
-    # echo -e "${amarelo}[ 11 ]${reset} - ${branco}Wordpress                              ${verde}| ${reset}  ${amarelo}[ 34 ]${reset} - ${branco}Affine${reset}"
-    # echo -e "${amarelo}[ 12 ]${reset} - ${branco}Baserow                                ${verde}| ${reset}  ${amarelo}[ 35 ]${reset} - ${branco}Directus${reset}"
-    # echo -e "${amarelo}[ 13 ]${reset} - ${branco}MongoDB                                ${verde}| ${reset}  ${amarelo}[ 36 ]${reset} - ${branco}VaultWarden${reset}"
-    # echo -e "${amarelo}[ 14 ]${reset} - ${branco}RabbitMQ                               ${verde}| ${reset}  ${amarelo}[ 37 ]${reset} - ${branco}NextCloud${reset}"
-    # echo -e "${amarelo}[ 15 ]${reset} - ${branco}Uptime Kuma                            ${verde}| ${reset}  ${amarelo}[ 38 ]${reset} - ${branco}Strapi${reset}"
-    # echo -e "${amarelo}[ 16 ]${reset} - ${branco}Cal.com                                ${verde}| ${reset}  ${amarelo}[ 39 ]${reset} - ${branco}PhpMyAdmin${reset}"
-    # echo -e "${amarelo}[ 17 ]${reset} - ${branco}Mautic                                 ${verde}| ${reset}  ${amarelo}[ 40 ]${reset} - ${branco}Supabase${reset}"
-    # echo -e "${amarelo}[ 18 ]${reset} - ${branco}Appsmith                               ${verde}| ${reset}  ${amarelo}[ 41 ]${reset} - ${branco}Ntfy${reset}"
-    # echo -e "${amarelo}[ 19 ]${reset} - ${branco}Qdrant                                 ${verde}| ${reset}  ${amarelo}[ 42 ]${reset} - ${branco}LowCoder ${reset}"
-    # echo -e "${amarelo}[ 20 ]${reset} - ${branco}Woofed CRM                             ${verde}| ${reset}  ${amarelo}[ 43 ]${reset} - ${branco}LangFlow${reset}"
-    # echo -e "${amarelo}[ 21 ]${reset} - ${branco}Formbricks                             ${verde}| ${reset}  ${amarelo}[ 44 ]${reset} - ${branco}OpenProject${reset}"
     echo -e ""
     echo -e ""
 }
-
-# menu_instalador_pg_2
-   
-
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-##                                         marca                                        ##
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-
 
 stack_editavel(){
 
@@ -1368,13 +1334,13 @@ while true; do
     ## Pergunta o Nome do Servidor
     echo -e "\e[97mPasso$amarelo 2/4\e[0m"
     echo -e "$amarelo--> Não pode conter Espaços e/ou cartacteres especiais"
-    echo -en "\e[33mEscolha um nome para o seu servidor (ex: danilo): \e[0m" && read -r nome_servidor
+    echo -en "\e[33mEscolha um nome para o seu servidor (ex: Danilo): \e[0m" && read -r nome_servidor
     echo ""
     
     ## Pergunta o nome da Rede Interna
     echo -e "\e[97mPasso$amarelo 3/4\e[0m"
     echo -e "$amarelo--> Não pode conter Espaços e/ou cartacteres especiais."
-    echo -en "\e[33mDigite um nome para sua rede interna (ex: OrionNet): \e[0m" && read -r nome_rede_interna
+    echo -en "\e[33mDigite um nome para sua rede interna (ex: DaniloNet): \e[0m" && read -r nome_rede_interna
     echo ""
     
     ## Pergunta o Email para informações sobre o certificado
