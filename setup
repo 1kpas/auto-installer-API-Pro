@@ -139,10 +139,6 @@ nome_credenciais() {
     echo ""
     info_credenciais
 }
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-##                                         marca                                        ##
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-
 ## Titulos
 
 ## Nome do instalador
@@ -342,52 +338,18 @@ nome_botpress() {
 menu_instalador() {
   case $menu_instalador in
     1) menu_instalador_pg_1 ;;
-    # 2) menu_instalador_pg_2 ;;
     *) echo "Erro ao listar menu..." ;;
   esac
 }
 
 menu_instalador_pg_1(){
-    # echo -e "${amarelo}[ 00 ]${reset} - ${branco}Testar SMTP                          "
-    # echo -e "${amarelo}[ 00 ]${reset} - ${branco}Testar SMTP                            ${verde}| ${reset}  ${amarelo}[ 22 ]${reset} - ${branco}NocoDB${reset}"
     echo -e "${amarelo}[ 01 ]${reset} - ${branco}Traefik & Portainer                   "
-    # echo -e "${amarelo}[ 01 ]${reset} - ${branco}Traefik & Portainer                    ${verde}| ${reset}  ${amarelo}[ 23 ]${reset} - ${branco}Langfuse${reset}"
     echo -e "${amarelo}[ 02 ]${reset} - ${branco}Chatwoot                              "
-    # echo -e "${amarelo}[ 02 ]${reset} - ${branco}Chatwoot                               ${verde}| ${reset}  ${amarelo}[ 24 ]${reset} - ${branco}Metabase${reset}"
-    # echo -e "${branco}  '-->${amarelo}[ 2.1 ]${reset} - ${branco}Chatwoot (ARM)              "
-    # echo -e "${branco}  '-->${amarelo}[ 2.1 ]${reset} - ${branco}Chatwoot (ARM)                  ${verde}| ${reset}  ${amarelo}[ 25 ]${reset} - ${branco}Odoo${reset}"
-    echo -e "${amarelo}[ 03 ]${reset} -  ${branco}Evolution API                         ${verde}| ${reset}  ${amarelo}[ 26 ]${reset} - ${branco}Chatwoot Nestor${reset}"
-    # echo -e "${amarelo}[ 04 ]${reset} - ${branco}MinIO                                  ${verde}| ${reset}  ${amarelo}[ 27 ]${reset} - ${branco}Uno API${reset}"
-    # echo -e "${amarelo}[ 05 ]${reset} - ${branco}Typebot                                ${verde}| ${reset}  ${amarelo}[ 28 ]${reset} - ${branco}N8N + Nodes Quepasa${reset}"
+    echo -e "${amarelo}[ 03 ]${reset} - ${branco}Evolution API                         "
     echo -e "${amarelo}[ 06 ]${reset} - ${branco}N8N                                   "
-    # echo -e "${amarelo}[ 06 ]${reset} - ${branco}N8N                                    ${verde}| ${reset}  ${amarelo}[ 29 ]${reset} - ${branco}Quepasa API${reset}"
-    # echo -e "${amarelo}[ 07 ]${reset} - ${branco}Flowise                                ${verde}| ${reset}  ${amarelo}[ 30 ]${reset} - ${branco}Docuseal${reset}"
-    # echo -e "${amarelo}[ 08 ]${reset} - ${branco}PgAdmin 4                             "
-    # echo -e "${amarelo}[ 08 ]${reset} - ${branco}PgAdmin 4                              ${verde}| ${reset}  ${amarelo}[ 31 ]${reset} - ${branco}Grafana + Prometheus + cAdvisor${reset}"
-    # echo -e "${amarelo}[ 09 ]${reset} - ${branco}Nocobase                               ${verde}| ${reset}  ${amarelo}[ 32 ]${reset} - ${branco}Dify AI${reset}"
-    # echo -e "${amarelo}[ 10 ]${reset} - ${branco}Botpress                               ${verde}| ${reset}  ${amarelo}[ 33 ]${reset} - ${branco}Ollama${reset}"
-    # echo -e "${amarelo}[ 11 ]${reset} - ${branco}Wordpress                              ${verde}| ${reset}  ${amarelo}[ 34 ]${reset} - ${branco}Affine${reset}"
-    # echo -e "${amarelo}[ 12 ]${reset} - ${branco}Baserow                                ${verde}| ${reset}  ${amarelo}[ 35 ]${reset} - ${branco}Directus${reset}"
-    # echo -e "${amarelo}[ 13 ]${reset} - ${branco}MongoDB                                ${verde}| ${reset}  ${amarelo}[ 36 ]${reset} - ${branco}VaultWarden${reset}"
-    # echo -e "${amarelo}[ 14 ]${reset} - ${branco}RabbitMQ                               ${verde}| ${reset}  ${amarelo}[ 37 ]${reset} - ${branco}NextCloud${reset}"
-    # echo -e "${amarelo}[ 15 ]${reset} - ${branco}Uptime Kuma                            ${verde}| ${reset}  ${amarelo}[ 38 ]${reset} - ${branco}Strapi${reset}"
-    # echo -e "${amarelo}[ 16 ]${reset} - ${branco}Cal.com                                ${verde}| ${reset}  ${amarelo}[ 39 ]${reset} - ${branco}PhpMyAdmin${reset}"
-    # echo -e "${amarelo}[ 17 ]${reset} - ${branco}Mautic                                 ${verde}| ${reset}  ${amarelo}[ 40 ]${reset} - ${branco}Supabase${reset}"
-    # echo -e "${amarelo}[ 18 ]${reset} - ${branco}Appsmith                               ${verde}| ${reset}  ${amarelo}[ 41 ]${reset} - ${branco}Ntfy${reset}"
-    # echo -e "${amarelo}[ 19 ]${reset} - ${branco}Qdrant                                 ${verde}| ${reset}  ${amarelo}[ 42 ]${reset} - ${branco}LowCoder ${reset}"
-    # echo -e "${amarelo}[ 20 ]${reset} - ${branco}Woofed CRM                             ${verde}| ${reset}  ${amarelo}[ 43 ]${reset} - ${branco}LangFlow${reset}"
-    # echo -e "${amarelo}[ 21 ]${reset} - ${branco}Formbricks                             ${verde}| ${reset}  ${amarelo}[ 44 ]${reset} - ${branco}OpenProject${reset}"
     echo -e ""
     echo -e ""
 }
-
-# menu_instalador_pg_2
-   
-
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-##                                         marca                                        ##
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-
 
 stack_editavel(){
 
@@ -583,7 +545,7 @@ criar_arquivo() {
     nome_credenciais
     echo -e "\e[97mPasso$amarelo 1/3\e[0m"
     #echo -e "\e[97mObs: Coloque o https:// antes do link do portainer\e[0m"
-    read -p "Digite a Url do Portainer (ex: portainer.daniloborgueti.com): " PORTAINER_URL
+    read -p "Digite a Url do Portainer (ex: painel.daniloborgueti.com): " PORTAINER_URL
     echo ""
 
     echo -e "\e[97mPasso$amarelo 2/3\e[0m"
@@ -611,7 +573,7 @@ verificar_campos() {
         nome_credenciais
         echo -e "\e[97mPasso$amarelo 1/3\e[0m"
         #echo -e "\e[97mObs: Coloque o https:// antes do link do portainer\e[0m"
-        read -p "Digite a Url do Portainer (ex: portainer.daniloborgueti.com): " PORTAINER_URL
+        read -p "Digite a Url do Portainer (ex: painel.daniloborgueti.com): " PORTAINER_URL
         echo ""
     
         echo -e "\e[97mPasso$amarelo 2/3\e[0m"
@@ -631,7 +593,7 @@ verificar_campos() {
         nome_credenciais
         echo -e "\e[97mPasso$amarelo 1/3\e[0m"
         #echo -e "\e[97mObs: Coloque o https:// antes do link do portainer\e[0m"
-        read -p "Digite a Url do Portainer (ex: portainer.daniloborgueti.com): " PORTAINER_URL
+        read -p "Digite a Url do Portainer (ex: painel.daniloborgueti.com): " PORTAINER_URL
         echo ""
     
         echo -e "\e[97mPasso$amarelo 2/3\e[0m"
@@ -700,7 +662,7 @@ verificar_token() {
                 nome_credenciais
                 echo -e "\e[97mPasso$amarelo 1/3\e[0m"
                 #echo -e "\e[97mObs: Coloque o https:// antes do link do portainer\e[0m"
-                read -p "Digite a Url do Portainer (ex: portainer.daniloborgueti.com): " PORTAINER_URL
+                read -p "Digite a Url do Portainer (ex: painel.daniloborgueti.com): " PORTAINER_URL
                 echo ""
             
                 echo -e "\e[97mPasso$amarelo 2/3\e[0m"
@@ -733,10 +695,6 @@ atualizar_arquivo() {
     echo -e "[ PORTAINER ]\nDominio do portainer: $PORTAINER_URL\n\nUsuario: $USUARIO\n\nSenha: $SENHA\n\nToken: $TOKEN" > "/root/dados_vps/dados_portainer"
     echo -e "\nArquivo de dados do Portainer atualizado com sucesso!"
 }
-
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-##                                         marca                                        ##
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
 
 ## Verificadores
 
@@ -993,11 +951,6 @@ requisitar_outra_instalacao(){
     fi
 }
 
-
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-##                                         marca                                        ##
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-
 ## Pegar informações
 
 
@@ -1065,10 +1018,6 @@ pegar_senha_minio() {
 pegar_link_s3() {
     url_s3=$(grep "MINIO_SERVER_URL" /root/minio.yaml | awk -F '=' '{print $2}' | sed 's/https:\/\///')
 }
-
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-##                                         marca                                        ##
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
 
 ## Criadores de banco de dados Postgres
 
@@ -1166,11 +1115,6 @@ criar_banco_pgvector_da_stack () {
         fi
     done
 }
-
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-##                                         marca                                        ##
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-
 ## Criadores de banco de dados Mysql
 
 ## Criar banco do Mautic
@@ -1220,11 +1164,6 @@ criar_banco_mysql_da_stack() {
     done
 }
 
-
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-##                                         marca                                        ##
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-
 ## Instalação das Ferramentas
 
 ## ████████╗███████╗███████╗████████╗███████╗    ███████╗███╗   ███╗████████╗██████╗ 
@@ -1243,12 +1182,12 @@ preencha_as_info
 while true; do
 
 echo -e "\e[97mPasso$amarelo 1/5\e[0m"
-echo -en "\e[33mDigite o endereço de Email (ex: contato@daniloborgueti.com): \e[0m" && read -r email_teste
+echo -en "\e[33mDigite o endereço de Email (ex: contato@dominio.com): \e[0m" && read -r email_teste
 echo ""
 
 echo -e "\e[97mPasso$amarelo 2/5\e[0m"
 echo -e "$amarelo--> Caso não tiver um usuario do email, use o proprio email abaixo"
-echo -en "\e[33mDigite o usuário de Email (ex: danilo ou contato@daniloborgueti.com): \e[0m" && read -r user_teste
+echo -en "\e[33mDigite o usuário de Email (ex: danilo ou contato@dominio.com): \e[0m" && read -r user_teste
 echo ""
 
 echo -e "\e[97mPasso$amarelo 3/5\e[0m"
@@ -1368,13 +1307,13 @@ while true; do
     ## Pergunta o Nome do Servidor
     echo -e "\e[97mPasso$amarelo 2/4\e[0m"
     echo -e "$amarelo--> Não pode conter Espaços e/ou cartacteres especiais"
-    echo -en "\e[33mEscolha um nome para o seu servidor (ex: danilo): \e[0m" && read -r nome_servidor
+    echo -en "\e[33mEscolha um nome para o seu servidor (ex: Danilo): \e[0m" && read -r nome_servidor
     echo ""
     
     ## Pergunta o nome da Rede Interna
     echo -e "\e[97mPasso$amarelo 3/4\e[0m"
     echo -e "$amarelo--> Não pode conter Espaços e/ou cartacteres especiais."
-    echo -en "\e[33mDigite um nome para sua rede interna (ex: OrionNet): \e[0m" && read -r nome_rede_interna
+    echo -en "\e[33mDigite um nome para sua rede interna (ex: DaniloNet): \e[0m" && read -r nome_rede_interna
     echo ""
     
     ## Pergunta o Email para informações sobre o certificado
@@ -1641,8 +1580,6 @@ cat > traefik.yaml << EOL
 version: "3.7"
 services:
 
-## --------------------------- ORION --------------------------- ##
-
   traefik:
     image: traefik:v2.11.2
     command:
@@ -1690,8 +1627,6 @@ services:
         mode: host
     networks:
       - $nome_rede_interna ## Nome da rede interna
-
-## --------------------------- ORION --------------------------- ##
 
 volumes:
   vol_shared:
@@ -1749,8 +1684,6 @@ cat > portainer.yaml <<EOL
 version: "3.7"
 services:
 
-## --------------------------- ORION --------------------------- ##
-
   agent:
     image: portainer/agent:latest ## Versão do portainer
 
@@ -1765,8 +1698,6 @@ services:
       mode: global
       placement:
         constraints: [node.platform.os == linux]
-
-## --------------------------- ORION --------------------------- ##
 
   portainer:
     image: portainer/portainer-ce:latest
@@ -1793,8 +1724,6 @@ services:
         - "traefik.docker.network=$nome_rede_interna" ## Nome da rede interna
         - "traefik.http.routers.portainer.entrypoints=websecure"
         - "traefik.http.routers.portainer.priority=1"
-
-## --------------------------- ORION --------------------------- ##
 
 networks:
   $nome_rede_interna: ## Nome da rede interna
@@ -1899,8 +1828,6 @@ cat > postgres.yaml <<EOL
 version: "3.7"
 services:
 
-## --------------------------- ORION --------------------------- ##
-
   postgres:
     image: postgres:14 ## Versão do postgres
 
@@ -1929,8 +1856,6 @@ services:
         limits:
           cpus: "1"
           memory: 1024M
-
-## --------------------------- ORION --------------------------- ##
 
 volumes:
   postgres_data:
@@ -1979,229 +1904,6 @@ wait_30_sec
 
 }
 
-## ██████╗  ██████╗     ██╗   ██╗███████╗ ██████╗████████╗ ██████╗ ██████╗ 
-## ██╔══██╗██╔════╝     ██║   ██║██╔════╝██╔════╝╚══██╔══╝██╔═══██╗██╔══██╗
-## ██████╔╝██║  ███╗    ██║   ██║█████╗  ██║        ██║   ██║   ██║██████╔╝
-## ██╔═══╝ ██║   ██║    ╚██╗ ██╔╝██╔══╝  ██║        ██║   ██║   ██║██╔══██╗
-## ██║     ╚██████╔╝     ╚████╔╝ ███████╗╚██████╗   ██║   ╚██████╔╝██║  ██║
-## ╚═╝      ╚═════╝       ╚═══╝  ╚══════╝ ╚═════╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝
-                                                                        
-
-ferramenta_pgvector() {
-
-## Ativa a função dados para pegar os dados da vps
-dados
-
-## Gerando uma senha aleatória para o Postgres
-senha_pgvector=$(openssl rand -hex 16)
-
-## Criando a stack
-cat > pgvector.yaml <<EOL
-version: "3.7"
-services:
-
-## --------------------------- ORION --------------------------- ##
-
-  pgvector:
-    image: pgvector/pgvector:pg16
-
-    ports:
-      - 5433:5432
-
-    volumes:
-      - pgvector:/var/lib/postgresql/data
-
-    networks:
-      - $nome_rede_interna
-
-    environment:
-      - POSTGRES_PASSWORD=$senha_pgvector
-
-    deploy:
-      mode: replicated
-      replicas: 1
-      placement:
-        constraints:
-          - node.role == manager
-      resources:
-        limits:
-          cpus: "0.5"
-          memory: 1024M
-
-## --------------------------- ORION --------------------------- ##
-
-volumes:
-  pgvector:
-    external: true
-    name: pgvector
-
-networks:
-  $nome_rede_interna: ## Nome da rede interna
-    external: true
-    name: $nome_rede_interna ## Nome da rede interna
-EOL
-if [ $? -eq 0 ]; then
-    echo "1/10 - [ OK ] - Criando Stack"
-else
-    echo "1/10 - [ OFF ] - Criando Stack"
-    echo "Não foi possivel criar a stack do PgVector"
-fi
-STACK_NAME="pgvector"
-stack_editavel #> /dev/null 2>&1
-#if [ $? -eq 0 ]; then
-#    echo "2/2 - [ OK ] - Deploy Stack"
-#else
-#    echo "2/2 - [ OFF ] - Deploy Stack"
-#    echo "Ops, não foi possivel subir a stack do PgVector."
-#fi
-#docker stack deploy --prune --resolve-image always -c pgvector.yaml pgvector > /dev/null 2>&1
-
-## Salvando informações da instalação dentro de /dados_vps/
-cd dados_vps
-
-cat > dados_pgvector <<EOL
-[ PGVECTOR ]
-
-Dominio do pgvector: postgres://pgvector:5432
-
-Usuario: postgres
-
-Senha: $senha_pgvector
-EOL
-
-cd
-cd
-
-## Espera 30 segundos
-wait_30_sec
-
-}
-
-## ██████╗  ██████╗     ██╗   ██╗███████╗ ██████╗████████╗ ██████╗ ██████╗ 
-## ██╔══██╗██╔════╝     ██║   ██║██╔════╝██╔════╝╚══██╔══╝██╔═══██╗██╔══██╗
-## ██████╔╝██║  ███╗    ██║   ██║█████╗  ██║        ██║   ██║   ██║██████╔╝
-## ██╔═══╝ ██║   ██║    ╚██╗ ██╔╝██╔══╝  ██║        ██║   ██║   ██║██╔══██╗
-## ██║     ╚██████╔╝     ╚████╔╝ ███████╗╚██████╗   ██║   ╚██████╔╝██║  ██║
-## ╚═╝      ╚═════╝       ╚═══╝  ╚══════╝ ╚═════╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝
-                                                                        
-
-ferramenta_pgvector_setup() {
-
-## Ativa a função dados para pegar os dados da vps
-dados
-
-## Gerando uma senha aleatória para o Postgres
-senha_pgvector=$(openssl rand -hex 16)
-
-## Criando a stack
-cat > pgvector.yaml <<EOL
-version: "3.7"
-services:
-
-## --------------------------- ORION --------------------------- ##
-
-  pgvector:
-    image: pgvector/pgvector:pg16
-
-    ports:
-      - 5433:5432
-
-    volumes:
-      - pgvector:/var/lib/postgresql/data
-
-    networks:
-      - $nome_rede_interna
-
-    environment:
-      - POSTGRES_PASSWORD=$senha_pgvector
-
-    deploy:
-      mode: replicated
-      replicas: 1
-      placement:
-        constraints:
-          - node.role == manager
-      resources:
-        limits:
-          cpus: "0.5"
-          memory: 1024M
-
-## --------------------------- ORION --------------------------- ##
-
-volumes:
-  pgvector:
-    external: true
-    name: pgvector
-
-networks:
-  $nome_rede_interna: ## Nome da rede interna
-    external: true
-    name: $nome_rede_interna ## Nome da rede interna
-EOL
-if [ $? -eq 0 ]; then
-    echo "1/10 - [ OK ] - Criando Stack"
-else
-    echo "1/10 - [ OFF ] - Criando Stack"
-    echo "Não foi possivel criar a stack do PgVector"
-fi
-STACK_NAME="pgvector"
-stack_editavel #> /dev/null 2>&1
-#if [ $? -eq 0 ]; then
-#    echo "2/2 - [ OK ] - Deploy Stack"
-#else
-#    echo "2/2 - [ OFF ] - Deploy Stack"
-#    echo "Ops, não foi possivel subir a stack do PgVector."
-#fi
-#docker stack deploy --prune --resolve-image always -c pgvector.yaml pgvector > /dev/null 2>&1
-
-## Salvando informações da instalação dentro de /dados_vps/
-cd dados_vps
-
-cat > dados_pgvector <<EOL
-[ PGVECTOR ]
-
-Dominio do pgvector: postgres://pgvector:5432
-
-Usuario: postgres
-
-Senha: $senha_pgvector
-EOL
-
-cd
-cd
-
-## Mensagem de finalizado
-instalado_msg
-
-## Mensagem de Guarde os Dados
-guarde_os_dados_msg
-
-## Dados da Aplicação:
-echo -e "\e[32m[ PGVECTOR ]\e[0m"
-echo ""
-
-
-echo -e "\e[97mDominio do PgVector:\e[33m postgres://pgvector:5432\e[0m"
-echo ""
-
-echo -e "\e[97mUsuario:\e[33m postgres\e[0m"
-echo ""
-
-echo -e "\e[97mSenha:\e[33m $senha_pgvector\e[0m"
-echo ""
-
-
-## Pergunta se deseja instalar outra aplicação
-requisitar_outra_instalacao
-
-cd
-cd
-
-## Espera 30 segundos
-wait_30_sec
-
-}
-
 ## ██████╗ ███████╗██████╗ ██╗███████╗
 ## ██╔══██╗██╔════╝██╔══██╗██║██╔════╝
 ## ██████╔╝█████╗  ██║  ██║██║███████╗
@@ -2218,8 +1920,6 @@ dados
 cat > redis.yaml <<EOL
 version: "3.7"
 services:
-
-## --------------------------- ORION --------------------------- ##
 
   redis:
     image: redis:latest  ## Versão do Redis
@@ -2247,8 +1947,6 @@ services:
         limits:
           cpus: "1"
           memory: 2048M
-
-## --------------------------- ORION --------------------------- ##
 
 volumes:
   redis_data:
@@ -2313,8 +2011,6 @@ cat > redis.yaml <<EOL
 version: "3.7"
 services:
 
-## --------------------------- ORION --------------------------- ##
-
   redis:
     image: redis:latest  ## Versão do Redis
     command: [
@@ -2341,8 +2037,6 @@ services:
         limits:
           cpus: "1"
           memory: 2048M
-
-## --------------------------- ORION --------------------------- ##
 
 volumes:
   redis_data:
@@ -2418,239 +2112,6 @@ wait_30_sec
 
 }
 
-## ███╗   ███╗██╗   ██╗███████╗ ██████╗ ██╗     
-## ████╗ ████║╚██╗ ██╔╝██╔════╝██╔═══██╗██║     
-## ██╔████╔██║ ╚████╔╝ ███████╗██║   ██║██║     
-## ██║╚██╔╝██║  ╚██╔╝  ╚════██║██║▄▄ ██║██║     
-## ██║ ╚═╝ ██║   ██║   ███████║╚██████╔╝███████╗
-## ╚═╝     ╚═╝   ╚═╝   ╚══════╝ ╚══▀▀═╝ ╚══════╝
-
-ferramenta_mysql() {
-
-## Ativa a função dados para pegar os dados da vps
-dados
-
-## Gerando uma senha aleatória para o Mysql
-senha_mysql=$(openssl rand -hex 16)
-
-## Criando a stack
-cat > mysql.yaml <<EOL
-version: "3.7"
-services:
-
-## --------------------------- ORION --------------------------- ##
-
-  mysql:
-    image: percona/percona-server:8.0 ## Versão do Mysql
-
-    volumes:
-      - mysql_data:/var/lib/mysql
-    networks:
-      - $nome_rede_interna ## Nome da rede interna
-
-    environment:
-    ## Senha MYSQL
-      - MYSQL_ROOT_PASSWORD=$senha_mysql
-
-    ## TimeZone
-      - TZ=America/Sao_Paulo
-
-    deploy:
-      placement:
-        constraints:
-          - node.role == manager
-      resources:
-        limits:
-          cpus: '1'
-          memory: 1024M
-    command:
-      [
-        "--character-set-server=utf8mb4",
-        "--collation-server=utf8mb4_general_ci",
-        "--sql-mode=",
-        "--default-authentication-plugin=caching_sha2_password",
-        "--max-allowed-packet=512MB",
-      ]
-
-## --------------------------- ORION --------------------------- ##
-
-volumes:
-  mysql_data:
-    external: true
-    name: mysql_data
-
-networks:
-  $nome_rede_interna: ## Nome da rede interna
-    external: true
-    name: $nome_rede_interna ## Nome da rede interna
-EOL
-if [ $? -eq 0 ]; then
-    echo "1/10 - [ OK ] - Criando Stack"
-else
-    echo "1/10 - [ OFF ] - Criando Stack"
-    echo "Não foi possivel criar a stack do MySQL"
-fi
-
-STACK_NAME="mysql"
-stack_editavel #> /dev/null 2>&1
-#if [ $? -eq 0 ]; then
-#    echo "2/2 - [ OK ] - Deploy Stack"
-#else
-#    echo "2/2 - [ OFF ] - Deploy Stack"
-#    echo "Ops, não foi possivel subir a stack do Postgres."
-#fi
-
-#docker stack deploy --prune --resolve-image always -c mysql.yaml mysql #> /dev/null 2>&1
-
-## Salvando informações da instalação dentro de /dados_vps/
-cd dados_vps
-
-cat > dados_mysql <<EOL
-[ MYSQL ]
-
-Dominio do mysql: mysql
-
-Usuario: mysql ou root
-
-Senha: $senha_mysql
-
-EOL
-
-cd
-cd
-
-## Espera 30 segundos
-wait_30_sec
-
-}
-
-## ███╗   ███╗██╗   ██╗███████╗ ██████╗ ██╗     
-## ████╗ ████║╚██╗ ██╔╝██╔════╝██╔═══██╗██║     
-## ██╔████╔██║ ╚████╔╝ ███████╗██║   ██║██║     
-## ██║╚██╔╝██║  ╚██╔╝  ╚════██║██║▄▄ ██║██║     
-## ██║ ╚═╝ ██║   ██║   ███████║╚██████╔╝███████╗
-## ╚═╝     ╚═╝   ╚═╝   ╚══════╝ ╚══▀▀═╝ ╚══════╝
-
-ferramenta_mysql_setup() {
-
-## Ativa a função dados para pegar os dados da vps
-dados
-
-## Gerando uma senha aleatória para o Mysql
-senha_mysql=$(openssl rand -hex 16)
-
-## Criando a stack
-cat > mysql.yaml <<EOL
-version: "3.7"
-services:
-
-## --------------------------- ORION --------------------------- ##
-
-  mysql:
-    image: percona/percona-server:8.0 ## Versão do Mysql
-
-    volumes:
-      - mysql_data:/var/lib/mysql
-    networks:
-      - $nome_rede_interna ## Nome da rede interna
-
-    environment:
-    ## Senha MYSQL
-      - MYSQL_ROOT_PASSWORD=$senha_mysql
-
-    ## TimeZone
-      - TZ=America/Sao_Paulo
-
-    deploy:
-      placement:
-        constraints:
-          - node.role == manager
-      resources:
-        limits:
-          cpus: '1'
-          memory: 1024M
-    command:
-      [
-        "--character-set-server=utf8mb4",
-        "--collation-server=utf8mb4_general_ci",
-        "--sql-mode=",
-        "--default-authentication-plugin=caching_sha2_password",
-        "--max-allowed-packet=512MB",
-      ]
-
-## --------------------------- ORION --------------------------- ##
-
-volumes:
-  mysql_data:
-    external: true
-    name: mysql_data
-
-networks:
-  $nome_rede_interna: ## Nome da rede interna
-    external: true
-    name: $nome_rede_interna ## Nome da rede interna
-EOL
-if [ $? -eq 0 ]; then
-    echo "1/10 - [ OK ] - Criando Stack"
-else
-    echo "1/10 - [ OFF ] - Criando Stack"
-    echo "Ops, não foi criar a stack do Mysql."
-fi
-
-STACK_NAME="mysql"
-stack_editavel
-#if [ $? -eq 0 ]; then
-#    echo "2/2 - [ OK ] - Deploy Stack"
-#else
-#    echo "2/2 - [ OFF ] - Deploy Stack"
-#    echo "Ops, não foi possivel subir a stack do Postgres."
-#fi
-
-#docker stack deploy --prune --resolve-image always -c mysql.yaml mysql #> /dev/null 2>&1
-
-## Salvando informações da instalação dentro de /dados_vps/
-cd dados_vps
-
-cat > dados_mysql <<EOL
-[ MYSQL ]
-
-Dominio do mysql: mysql
-
-Usuario: mysql ou root
-
-Senha: $senha_mysql
-EOL
-
-## Mensagem de finalizado
-instalado_msg
-
-## Mensagem de Guarde os Dados
-guarde_os_dados_msg
-
-## Dados da Aplicação:
-echo -e "\e[32m[ MYSQL ]\e[0m"
-echo ""
-
-echo -e "\e[97mHost:\e[33m mysql\e[0m"
-echo ""
-
-echo -e "\e[97mUsuario:\e[33m root\e[0m"
-echo ""
-
-echo -e "\e[97mSenha:\e[33m $senha_mysql\e[0m"
-echo ""
-
-
-## Pergunta se deseja instalar outra aplicação
-requisitar_outra_instalacao
-
-cd
-cd
-
-## Espera 30 segundos
-wait_30_sec
-
-}
 
 ##  ██████╗██╗  ██╗ █████╗ ████████╗██╗    ██╗ ██████╗  ██████╗ ████████╗
 ## ██╔════╝██║  ██║██╔══██╗╚══██╔══╝██║    ██║██╔═══██╗██╔═══██╗╚══██╔══╝
@@ -2678,7 +2139,7 @@ while true; do
 
     ##Pergunta o Dominio para aplicação
     echo -e "\e[97mPasso$amarelo 1/6\e[0m"
-    echo -en "\e[33mDigite o Dominio para o Chatwoot (ex: chatwoot.daniloborgueti.com): \e[0m" && read -r url_chatwoot
+    echo -en "\e[33mDigite o Dominio para o Chatwoot (ex: chat.dominio.com): \e[0m" && read -r url_chatwoot
     echo ""
     
     ## Pega o nome do dominio para ser o nome da empresa
@@ -2686,7 +2147,7 @@ while true; do
     
     ## Pergunta o email SMTP
     echo -e "\e[97mPasso$amarelo 2/6\e[0m"
-    echo -en "\e[33mDigite o Email para SMTP (ex: contato@daniloborgueti.com): \e[0m" && read -r email_admin_chatwoot
+    echo -en "\e[33mDigite o Email para SMTP (ex: contato@dominio.com): \e[0m" && read -r email_admin_chatwoot
     echo ""
 
     ## Define o dominio SMTP com o dominio do email
@@ -2695,7 +2156,7 @@ while true; do
     ##Pergunta o usuário do Email SMTP
     echo -e "\e[97mPasso$amarelo 3/6\e[0m"
     echo -e "$amarelo--> Caso não tiver um usuario do email, use o proprio email abaixo"
-    echo -en "\e[33mDigite o Usuário para SMTP (ex: danilo ou contato@daniloborgueti.com): \e[0m" && read -r user_smtp_chatwoot
+    echo -en "\e[33mDigite o Usuário para SMTP (ex: danilo ou contato@dominio.com): \e[0m" && read -r user_smtp_chatwoot
     echo ""
     
     ## Pergunta a senha do SMTP
@@ -3189,539 +2650,6 @@ echo ""
 requisitar_outra_instalacao
 }
 
-##  ██████╗██╗  ██╗ █████╗ ████████╗██╗    ██╗ ██████╗  ██████╗ ████████╗
-## ██╔════╝██║  ██║██╔══██╗╚══██╔══╝██║    ██║██╔═══██╗██╔═══██╗╚══██╔══╝
-## ██║     ███████║███████║   ██║   ██║ █╗ ██║██║   ██║██║   ██║   ██║   
-## ██║     ██╔══██║██╔══██║   ██║   ██║███╗██║██║   ██║██║   ██║   ██║   
-## ╚██████╗██║  ██║██║  ██║   ██║   ╚███╔███╔╝╚██████╔╝╚██████╔╝   ██║   
-##  ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝    ╚══╝╚══╝  ╚═════╝  ╚═════╝    ╚═╝   
-##
-##                       █████╗ ██████╗ ███╗   ███╗
-##                      ██╔══██╗██╔══██╗████╗ ████║
-##                      ███████║██████╔╝██╔████╔██║
-##                      ██╔══██║██╔══██╗██║╚██╔╝██║
-##                      ██║  ██║██║  ██║██║ ╚═╝ ██║
-##                      ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝                         
-
-ferramenta_chatwoot_arm() {
-
-## Limpa o terminal
-clear
-
-## Ativa a função dados para pegar os dados da vps
-dados
-
-## Mostra o nome da aplicação
-nome_chatwoot
-
-## Mostra mensagem para preencher informações
-preencha_as_info
-
-## Inicia um Loop até os dados estarem certos
-while true; do
-
-    ##Pergunta o Dominio para aplicação
-    echo -e "\e[97mPasso$amarelo 1/5\e[0m"
-    echo -en "\e[33mDigite o Dominio para o Chatwoot (ex: chatwoot.daniloborgueti.com): \e[0m" && read -r url_chatwoot
-    echo ""
-    
-    ## Pega o nome do dominio para ser o nome da empresa
-    nome_empresa_chatwoot="$nome_servidor"
-    
-    ## Pergunta o email SMTP
-    echo -e "\e[97mPasso$amarelo 2/5\e[0m"
-    echo -en "\e[33mDigite o Email para SMTP (ex: contato@daniloborgueti.com): \e[0m" && read -r email_admin_chatwoot
-    echo ""
-    
-    ## Define o dominio SMTP com o dominio do email
-    dominio_smtp_chatwoot=$(echo "$email_admin_chatwoot" | cut -d "@" -f 2)
-    
-    ## Pergunta a senha do SMTP
-    echo -e "\e[97mPasso$amarelo 3/5\e[0m"
-    echo -e "$amarelo--> Sem caracteres especiais: \!#$ | Se estiver usando gmail use a senha de app"
-    echo -en "\e[33mDigite a Senha SMTP do Email (ex: @Senha123_): \e[0m" && read -r senha_email_chatwoot
-    echo ""
-    
-    ## Pergunta o Host SMTP do email
-    echo -e "\e[97mPasso$amarelo 4/5\e[0m"
-    echo -en "\e[33mDigite o Host SMTP do Email (ex: smtp.hostinger.com): \e[0m" && read -r smtp_email_chatwoot
-    echo ""
-    
-    ## Pergunta a porta SMTP do email
-    echo -e "\e[97mPasso$amarelo 5/5\e[0m"
-    echo -en "\e[33mDigite a porta SMTP do Email (ex: 465): \e[0m" && read -r porta_smtp_chatwoot
-    
-    
-    ## Verifica se a porta é 465, se sim deixa o ssl true, se não, deixa false 
-    if [ "$porta_smtp_chatwoot" -eq 465 ]; then
-     sobre_ssl=true
-    else
-     sobre_ssl=false
-    fi
-    
-    ## Limpa o terminal
-    clear
-    
-    ## Mostra o nome da aplicação
-    nome_chatwoot
-    
-    ## Mostra mensagem para verificar as informações
-    conferindo_as_info
-    
-    ## Informação sobre URL
-    echo -e "\e[33mDominio do Chatwoot:\e[97m $url_chatwoot\e[0m"
-    echo ""
-
-    ## Informação sobre Nome da Empresa
-    echo -e "\e[33mNome da Empresa:\e[97m $nome_empresa_chatwoot\e[0m"
-    echo ""
-
-    ## Informação sobre Email de SMTP
-    echo -e "\e[33mEmail do SMTP:\e[97m $email_admin_chatwoot\e[0m"
-    echo ""
-
-    ## Informação sobre Senha de SMTP
-    echo -e "\e[33mSenha do SMTP:\e[97m $senha_email_chatwoot\e[0m"
-    echo ""
-
-    ## Informação sobre Host SMTP
-    echo -e "\e[33mHost SMTP:\e[97m $smtp_email_chatwoot\e[0m"
-    echo ""
-
-    ## Informação sobre Porta SMTP
-    echo -e "\e[33mPorta SMTP:\e[97m $porta_smtp_chatwoot\e[0m"
-    echo ""
-    echo ""
-
-    ## Pergunta se as respostas estão corretas
-    read -p "As respostas estão corretas? (Y/N): " confirmacao
-    if [ "$confirmacao" = "Y" ] || [ "$confirmacao" = "y" ]; then
-
-        ## Digitou Y para confirmar que as informações estão corretas
-
-        ## Limpar o terminal
-        clear
-
-        ## Mostrar mensagem de Instalando
-        instalando_msg
-
-        ## Sai do Loop
-        break
-    else
-
-        ## Digitou N para dizer que as informações não estão corretas.
-
-        ## Limpar o terminal
-        clear
-
-        ## Mostra o nome da ferramenta
-        nome_chatwoot
-
-        ## Mostra mensagem para preencher informações
-        preencha_as_info
-
-    ## Volta para o inicio do loop com as perguntas
-    fi
-done
-
-
-## Mensagem de Passo
-echo -e "\e[97m• INICIANDO A INSTALAÇÃO DO CHATWOOT ARM \e[33m[1/6]\e[0m"
-echo ""
-sleep 1
-
-## Ativa a função dados para pegar os dados da vps
-dados
-
-## Mensagem de Passo
-echo -e "\e[97m• VERIFICANDO/INSTALANDO POSTGRES E REDIS \e[33m[2/6]\e[0m"
-echo ""
-sleep 1
-
-## Aqui vamos fazer uma verificação se já existe Postgres e redis instalado
-## Se tiver ele vai criar um banco de dados no postgres ou perguntar se deseja apagar o que já existe e criar outro
-
-## Verifica container postgres e cria banco no postgres
-verificar_container_postgres
-if [ $? -eq 0 ]; then
-    pegar_senha_postgres > /dev/null 2>&1
-    criar_banco_postgres_da_stack "chatwoot"
-else
-    ferramenta_postgres #> /dev/null 2>&1
-    pegar_senha_postgres > /dev/null 2>&1
-    criar_banco_postgres_da_stack "chatwoot"
-fi
-if [ $? -eq 0 ]; then
-    echo "1/2 - [ OK ] - Verificando/Instalando Postgres"
-else
-    echo "1/2 - [ OFF ] - Verificando/Instalando Postgres"
-fi
-
-## Verifica container redis
-verificar_container_redis
-if [ $? -eq 0 ]; then
-    echo ""
-else
-    ferramenta_redis > /dev/null 2>&1
-fi
-if [ $? -eq 0 ]; then
-    echo "2/2 - [ OK ] - Verificando/Instalando Reids"
-else
-    echo "2/2 - [ OFF ] - Verificando/Instalando Redis"
-fi
-
-## Mensagem de Passo
-echo -e "\e[97m• INSTALANDO CHATWOOT \e[33m[3/6]\e[0m"
-echo ""
-sleep 1
-
-## Neste passo vamos estar criando a Stack yaml do Chatwoot na pasta /root/
-## Isso possibilitará que o usuario consiga edita-lo posteriormente
-
-## Depois vamos instalar o Chatwoot e verificar se esta tudo certo.
-
-## Criando key aleatória
-encryption_key=$(openssl rand -hex 16)
-
-## Criando a stack
-cat > chatwoot.yaml <<EOL
-version: "3.7"
-services:
-
-## --------------------------- ORION --------------------------- ##
-
-  chatwoot_app:
-    image: sendingtk/chatwoot-arm:latest ## Versão do Chatwoot
-    command: bundle exec rails s -p 3000 -b 0.0.0.0
-    entrypoint: docker/entrypoints/rails.sh
-
-    volumes:
-      - chatwoot_storage:/app/storage ## Arquivos de conversa
-      - chatwoot_public:/app/public ## Arquivos de logos
-      - chatwoot_mailer:/app/app/views/devise/mailer ## Arquivos de email
-      - chatwoot_mailers:/app/app/views/mailers ## Arquivos de emails
-
-    networks:
-      - $nome_rede_interna ## Nome da rede interna
-    
-    environment:
-      ## Qualquer Url com # no final
-      - CHATWOOT_HUB_URL=https://daniloborgueti.com/setup#
-
-      ## Nome da Empresa
-      - INSTALLATION_NAME=$nome_empresa_chatwoot
-
-      ## Secret key
-      - SECRET_KEY_BASE=$encryption_key
-
-      ## Url Chatwoot
-      - FRONTEND_URL=https://$url_chatwoot
-      - FORCE_SSL=true
-
-      ## Idioma padrão
-      - DEFAULT_LOCALE=pt_BR
-
-      ## Google Cloud - Modifique de acordo com os seus dados (lembre-se de mudar no chatwoot_sidekiq)
-      #- GOOGLE_OAUTH_CLIENT_ID=369777777777-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com
-      #- GOOGLE_OAUTH_CLIENT_SECRET=ABCDEF-GHijklmnoPqrstuvwX-yz1234567
-      #- GOOGLE_OAUTH_CALLBACK_URL=https://<your-server-domain>/omniauth/google_oauth2/callback
-
-      ## Dados do Redis
-      - REDIS_URL=redis://redis:6379
-
-      ## Dados do Postgres
-      - POSTGRES_HOST=postgres
-      - POSTGRES_USERNAME=postgres
-      - POSTGRES_PASSWORD=$senha_postgres ## Senha do postgres
-      - POSTGRES_DATABASE=chatwoot
-
-      ## Armazenamento
-      - ACTIVE_STORAGE_SERVICE=local ## use s3_compatible para MinIO
-      #- STORAGE_BUCKET_NAME=chatwoot
-      #- STORAGE_ACCESS_KEY_ID=ACCESS_KEY_MINIO
-      #- STORAGE_SECRET_ACCESS_KEY=SECRET_KEY_MINIO
-      #- STORAGE_REGION=eu-south
-      #- STORAGE_ENDPOINT=https://s3.DOMINIO.COM
-      #- STORAGE_FORCE_PATH_STYLE=true
-
-      ## Dados do SMTP
-      - MAILER_SENDER_EMAIL=$email_admin_chatwoot <$email_admin_chatwoot> ## Email SMTP
-      - SMTP_DOMAIN=$dominio_smtp_chatwoot ## Dominio do email
-      - SMTP_ADDRESS=$smtp_email_chatwoot ## Host SMTP
-      - SMTP_PORT=$porta_smtp_chatwoot ## Porta SMTP
-      - SMTP_SSL=$sobre_ssl ## Se a porta for 465 = true | Se a porta for 587 = false
-      - SMTP_USERNAME=$email_admin_chatwoot ## Email SMTP
-      - SMTP_PASSWORD=$senha_email_chatwoot ## Senha do SMTP
-      - SMTP_AUTHENTICATION=login
-      - SMTP_ENABLE_STARTTLS_AUTO=true
-      - SMTP_OPENSSL_VERIFY_MODE=peer
-      - MAILER_INBOUND_EMAIL_DOMAIN=$email_admin_chatwoot ## Email SMTP
-
-      ## Outras configurações
-      - NODE_ENV=production
-      - RAILS_ENV=production
-      - INSTALLATION_ENV=docker
-      - RAILS_LOG_TO_STDOUT=true
-      - USE_INBOX_AVATAR_FOR_BOT=true
-      - ENABLE_ACCOUNT_SIGNUP=false
-
-    deploy:
-      mode: replicated
-      replicas: 1
-      placement:
-        constraints:
-          - node.role == manager
-      resources:
-        limits:
-          cpus: "1"
-          memory: 1024M
-      labels:
-        - traefik.enable=true
-        - traefik.http.routers.chatwoot_app.rule=Host(\`$url_chatwoot\`)
-        - traefik.http.routers.chatwoot_app.entrypoints=websecure
-        - traefik.http.routers.chatwoot_app.tls.certresolver=letsencryptresolver
-        - traefik.http.routers.chatwoot_app.priority=1
-        - traefik.http.routers.chatwoot_app.service=chatwoot_app
-        - traefik.http.services.chatwoot_app.loadbalancer.server.port=3000 
-        - traefik.http.services.chatwoot_app.loadbalancer.passhostheader=true 
-        - traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https
-        - traefik.http.routers.chatwoot_app.middlewares=sslheader@docker
-
-## --------------------------- ORION --------------------------- ##
-
-  chatwoot_sidekiq:
-    image: sendingtk/chatwoot-arm:latest ## Versão do Chatwoot
-    command: bundle exec sidekiq -C config/sidekiq.yml
-
-    volumes:
-      - chatwoot_storage:/app/storage ## Arquivos de conversa
-      - chatwoot_public:/app/public ## Arquivos de logos
-      - chatwoot_mailer:/app/app/views/devise/mailer ## Arquivos de email
-      - chatwoot_mailers:/app/app/views/mailers ## Arquivos de emails
-
-    networks:
-      - $nome_rede_interna ## Nome da rede interna
-
-    environment:
-      ## Qualquer Url com # no final
-      - CHATWOOT_HUB_URL=https://daniloborgueti.com/setup#
-
-      ## Nome da Empresa
-      - INSTALLATION_NAME=$nome_empresa_chatwoot
-
-      ## Secret key
-      - SECRET_KEY_BASE=$encryption_key
-
-      ## Url Chatwoot
-      - FRONTEND_URL=https://$url_chatwoot
-      - FORCE_SSL=true
-
-      ## Idioma padrão
-      - DEFAULT_LOCALE=pt_BR
-
-      ## Google Cloud - Modifique de acordo com os seus dados (lembre-se de mudar no chatwoot_sidekiq)
-      #- GOOGLE_OAUTH_CLIENT_ID=369777777777-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com
-      #- GOOGLE_OAUTH_CLIENT_SECRET=ABCDEF-GHijklmnoPqrstuvwX-yz1234567
-      #- GOOGLE_OAUTH_CALLBACK_URL=https://<your-server-domain>/omniauth/google_oauth2/callback
-
-      ## Dados do Redis
-      - REDIS_URL=redis://redis:6379
-
-      ## Dados do Postgres
-      - POSTGRES_HOST=postgres
-      - POSTGRES_USERNAME=postgres
-      - POSTGRES_PASSWORD=$senha_postgres ## Senha do postgres
-      - POSTGRES_DATABASE=chatwoot
-
-      ## Armazenamento
-      - ACTIVE_STORAGE_SERVICE=local ## use s3_compatible para MinIO
-      #- STORAGE_BUCKET_NAME=chatwoot
-      #- STORAGE_ACCESS_KEY_ID=ACCESS_KEY_MINIO
-      #- STORAGE_SECRET_ACCESS_KEY=SECRET_KEY_MINIO
-      #- STORAGE_REGION=eu-south
-      #- STORAGE_ENDPOINT=https://s3.DOMINIO.COM
-      #- STORAGE_FORCE_PATH_STYLE=true
-
-      ## Dados do SMTP
-      - MAILER_SENDER_EMAIL=$email_admin_chatwoot <$email_admin_chatwoot> ## Email SMTP
-      - SMTP_DOMAIN=$dominio_smtp_chatwoot ## Dominio do email
-      - SMTP_ADDRESS=$smtp_email_chatwoot ## Host SMTP
-      - SMTP_PORT=$porta_smtp_chatwoot ## Porta SMTP
-      - SMTP_SSL=$sobre_ssl ## Se a porta for 465 = true | Se a porta for 587 = false
-      - SMTP_USERNAME=$email_admin_chatwoot ## Email SMTP
-      - SMTP_PASSWORD=$senha_email_chatwoot ## Senha do SMTP
-      - SMTP_AUTHENTICATION=login
-      - SMTP_ENABLE_STARTTLS_AUTO=true
-      - SMTP_OPENSSL_VERIFY_MODE=peer
-      - MAILER_INBOUND_EMAIL_DOMAIN=$email_admin_chatwoot ## Email SMTP
-
-      ## Outras configurações
-      - NODE_ENV=production
-      - RAILS_ENV=production
-      - INSTALLATION_ENV=docker
-      - RAILS_LOG_TO_STDOUT=true
-      - USE_INBOX_AVATAR_FOR_BOT=true
-      - ENABLE_ACCOUNT_SIGNUP=false
-
-    deploy:
-      mode: replicated
-      replicas: 1
-      placement:
-        constraints:
-          - node.role == manager
-      resources:
-        limits:
-          cpus: "1"
-          memory: 1024M
-
-## --------------------------- ORION --------------------------- ##
-
-volumes:
-  chatwoot_storage:
-    external: true
-    name: chatwoot_storage
-  chatwoot_public:
-    external: true
-    name: chatwoot_public
-  chatwoot_mailer:
-    external: true
-    name: chatwoot_mailer
-  chatwoot_mailers:
-    external: true
-    name: chatwoot_mailers
-
-networks:
-  $nome_rede_interna: ## Nome da rede interna
-    external: true
-    name: $nome_rede_interna ## Nome da rede interna
-EOL
-if [ $? -eq 0 ]; then
-    echo "1/10 - [ OK ] - Criando Stack"
-else
-    echo "1/10 - [ OFF ] - Criando Stack"
-    echo "Não foi possivel criar a stack do Chatwoot"
-fi
-STACK_NAME="chatwoot"
-stack_editavel # > /dev/null 2>&1
-#docker stack deploy --prune --resolve-image always -c chatwoot.yaml chatwoot > /dev/null 2>&1
-
-#if [ $? -eq 0 ]; then
-#    echo "2/2 - [ OK ] - Deploy Stack"
-#else
-#    echo "2/2 - [ OFF ] - Deploy Stack"
-#    echo "Não foi possivel subir a stack do Chatwoot"
-#fi
-
-## Mensagem de Passo
-echo -e "\e[97m• ESPERANDO SERVIÇO DO CHATWOOT ESTAR PRONTO \e[33m[4/6]\e[0m"
-echo ""
-sleep 1
-
-## Usa o serviço wait_chatwoot para verificar se o serviço esta online
-wait_stack "chatwoot"
-
-## Mensagem de Passo
-echo -e "\e[97m• MIGRANDO BANCO DE DADOS \e[33m[5/6]\e[0m"
-echo ""
-sleep 1
-
-## Aqui vamos estar migrando o banco de dados usando o comando "bundle exec rails db:chatwoot_prepare"
-
-## Basicamente voce poderia entrar no banco de dados do chatwoot e executar o comando por lá tambem
-
-container_name="chatwoot_chatwoot_app"
-
-max_wait_time=1200
-
-wait_interval=60
-
-elapsed_time=0
-
-while [ $elapsed_time -lt $max_wait_time ]; do
-  CONTAINER_ID=$(docker ps -q --filter "name=$container_name")
-  if [ -n "$CONTAINER_ID" ]; then
-    break
-  fi
-  sleep $wait_interval
-  elapsed_time=$((elapsed_time + wait_interval))
-done
-
-if [ -z "$CONTAINER_ID" ]; then
-  echo "O contêiner não foi encontrado após $max_wait_time segundos."
-  exit 1
-fi
-
-docker exec -it "$CONTAINER_ID" bundle exec rails db:chatwoot_prepare
-if [ $? -eq 0 ]; then
-    echo "1/1 - [ OK ] - Executando no container: bundle exec rails db:chatwoot_prepare"
-else
-    echo "1/1 - [ OFF ] - Executando no container: bundle exec rails db:chatwoot_prepare"
-    echo "Não foi possivel migrar o banco de dados"
-fi
-## Mensagem de Passo
-echo -e "\e[97m• ATIVANDO FUNÇÕES DO SUPER ADMIN \e[33m[6/6]\e[0m"
-echo ""
-sleep 1
-
-##  Aqui vamos alterar um dado no postgres para liberar algumas funções ocultas no painel de super admin
-
-wait_for_postgres
-
-docker exec -i $CONTAINER_ID psql -U postgres <<EOF
-\c chatwoot;
-update installation_configs set locked = false;
-\q
-EOF
-if [ $? -eq 0 ]; then
-    echo "1/1 - [ OK ] - Modificando tabela installation_configs no postgres"
-else
-    echo "1/1 - [ OFF ] - Modificando tabela installation_configs no postgres"
-    echo "Não foi possivel liberar as funções do super_admin"
-fi
-
-## Salvando informações da instalação dentro de /dados_vps/
-cd dados_vps
-
-cat > dados_chatwoot_arm <<EOL
-[ CHATWOOT ARM ]
-
-Dominio do Chatwoot: https://$url_chatwoot
-
-Usuario: Precisa criar dentro do Chatwoot
-
-Senha: Precisa criar dentro do Chatwoot
-EOL
-
-cd
-cd
-
-## Espera 30 segundos
-wait_30_sec
-
-## Mensagem de finalizado
-instalado_msg
-
-## Mensagem de Guarde os Dados
-guarde_os_dados_msg
-
-## Dados da Aplicação:
-echo -e "\e[32m[ CHATWOOT ARM ]\e[0m"
-echo ""
-
-echo -e "\e[97mDominio:\e[33m https://$url_chatwoot\e[0m"
-echo ""
-
-echo -e "\e[97mUsuario:\e[33m Precisa criar dentro do Chatwoot\e[0m"
-echo ""
-
-echo -e "\e[97mSenha:\e[33m Precisa criar dentro do Chatwoot\e[0m"
-echo ""
-
-
-## Pergunta se deseja instalar outra aplicação
-requisitar_outra_instalacao
-}
-
 ## ███████╗██╗   ██╗ ██████╗ ██╗     ██╗   ██╗████████╗██╗ ██████╗ ███╗   ██╗     █████╗ ██████╗ ██╗
 ## ██╔════╝██║   ██║██╔═══██╗██║     ██║   ██║╚══██╔══╝██║██╔═══██╗████╗  ██║    ██╔══██╗██╔══██╗██║
 ## █████╗  ██║   ██║██║   ██║██║     ██║   ██║   ██║   ██║██║   ██║██╔██╗ ██║    ███████║██████╔╝██║
@@ -3862,9 +2790,6 @@ apikeyglobal=$(openssl rand -hex 16)
 cat > evolution.yaml <<EOL
 version: "3.7"
 services:
-
-## --------------------------- ORION --------------------------- ##
-
   evolution:
     image: atendai/evolution-api:v2.1.0
 
@@ -4040,8 +2965,6 @@ services:
       - traefik.http.routers.evolution.service=evolution
       - traefik.http.services.evolution.loadbalancer.server.port=8080
       - traefik.http.services.evolution.loadbalancer.passHostHeader=true
-
-## --------------------------- ORION --------------------------- ##
 
 volumes:
   evolution_instances:
@@ -4229,8 +3152,6 @@ cat > evolution_v1.yaml <<EOL
 version: "3.7"
 services:
 
-## --------------------------- ORION --------------------------- ##
-
   evolution_danilo:
     image: atendai/evolution-api:latest ## Versão da Evolution API
     command: ["node", "./dist/src/main.js"]
@@ -4358,8 +3279,6 @@ services:
       - traefik.http.routers.evolution_danilo.service=evolution_danilo
       - traefik.http.services.evolution_danilo.loadbalancer.server.port=8080
       - traefik.http.services.evolution_danilo.loadbalancer.passHostHeader=1
-
-## --------------------------- ORION --------------------------- ##
 
 volumes:
   evolution_danilo_instances:
@@ -5029,8 +3948,6 @@ cat > n8n.yaml <<EOL
 version: "3.7"
 services:
 
-## --------------------------- ORION --------------------------- ##
-
   n8n_editor:
     image: n8nio/n8n:latest ## Versão do N8N
     command: start
@@ -5106,8 +4023,6 @@ services:
         - traefik.http.routers.n8n_editor.service=n8n_editor
         - traefik.http.services.n8n_editor.loadbalancer.server.port=5678
         - traefik.http.services.n8n_editor.loadbalancer.passHostHeader=1
-
-## --------------------------- ORION --------------------------- ##
 
   n8n_webhook:
     image: n8nio/n8n:latest ## Versão do N8N
@@ -5186,8 +4101,6 @@ services:
         - traefik.http.services.n8n_webhook.loadbalancer.server.port=5678
         - traefik.http.services.n8n_webhook.loadbalancer.passHostHeader=1
 
-## --------------------------- ORION --------------------------- ##
-
   n8n_worker:
     image: n8nio/n8n:latest ## Versão do N8N
     command: worker --concurrency=10
@@ -5255,8 +4168,6 @@ services:
         limits:
           cpus: "1"
           memory: 1024M
-
-## --------------------------- ORION --------------------------- ##
 
 networks:
   $nome_rede_interna:
@@ -5334,9 +4245,6 @@ requisitar_outra_instalacao
   
 ## Ignore esta parte, só para facilitar minha identificação com esta parte "XXOOXX"
 
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-##                                         marca                                        ##
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
 
 ## Comandos extras
 
@@ -5853,19 +4761,7 @@ quepasa.setup.on(){
     echo "Voltando ao menu de ferramentas..."
     sleep 5
 }
-
-
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-##                                         marca                                        ##
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-
-## Iniciando instalador
-
-## Mostrar nome do instalador
 nome_instalador
-
-## Mostrar direitos do instalador
-direitos_instalador
 
 ##Após apetar Y e confirmar continua..
 
@@ -5875,7 +4771,7 @@ while true; do
     nome_menu
     menu_instalador
 
-    read -p "Digite o NÚMERO da opção desejada ou COMANDO oculto: " opcao
+    read -p "Digite o Numero de qual Stack deseja Instalar: " opcao
 
     case $opcao in
 
@@ -5898,56 +4794,6 @@ while true; do
                     APP_ORION="ferramenta_chatwoot"
                     verificar_arquivo
                 fi
-
-                ## FIM TOKEN 
-
-                ### Inicio do teste para unificar AMD/INTEL com ARM
-                #
-                ### Nome da Stack
-                #STACK_NAME="chatwoot"
-                #
-                ### Modelo do processador
-                #cpu_vendor=$(lscpu | grep 'Vendor ID' | awk '{print $3}')
-                #
-                ### Verifica se o processador é INTEL ou AMD
-                #if [[ "$cpu_vendor" == "GenuineIntel" || "$cpu_vendor" == "AuthenticAMD" ]]; then
-                #    
-                #    ## Verifica se tem Token no arquivo dados_portainer
-                #    if grep -q "Token: .\+" /root/dados_vps/dados_portainer; then
-                #        ferramenta_chatwoot ## Inicia instalação para INTEL/AMD
-                #    ## Se não tiver Token no dados_portainer
-                #    else
-                #        ## Nome da Stack
-                #        APP_ORION="ferramenta_chatwoot"
-                #
-                #        ## Verifica o arquivo dados_portainer e pede dados
-                #        verificar_arquivo
-                #    fi
-                #
-                ### Verifica se o processador é ARM
-                #elif [[ "$cpu_arch" == "armv7l" || "$cpu_arch" == "aarch64" || "$cpu_vendor" == "ARM" ]]; then
-                #    
-                #    ## Verifica se tem Token no arquivo dados_portainer
-                #    if grep -q "Token: .\+" /root/dados_vps/dados_portainer; then
-                #        ferramenta_chatwoot_arm ## Inicia instalação para ARM
-                #    ## Se não tiver Token no dados_portainer
-                #    else
-                #        ## Nome da Stack
-                #        APP_ORION="ferramenta_chatwoot_arm"
-                #
-                #        ## Verifica o arquivo dados_portainer e pede dados
-                #        verificar_arquivo
-                #    fi
-                #
-                ### Se não for INTEL, AMD ou ARM
-                #else
-                #    ## Apresenta mensagem de erro.
-                #    clear && erro_msg
-                #    echo "Tipo de processador desconhecido: $cpu_vendor, voltando para o menu iniciar."
-                #    echo "Reporte este erro no whatsapp: +55 11 97305-2593"
-                #    sleep 5
-                #fi
-                ### Fim 
 
             fi
             ;;
@@ -5992,23 +4838,6 @@ while true; do
 
             ;;
         #.1)
-        #   if verificar_docker_e_portainer_traefik; then
-
-        #       ## INICIO TOKEN
-
-        #       STACK_NAME="evolution"
-
-        #       if grep -q "Token: .\+" /root/dados_vps/dados_portainer; then
-        #           ferramenta_evolution_arm
-        #       else
-        #           APP_ORION="ferramenta_evolution_arm"
-        #           verificar_arquivo
-        #       fi
-
-        #       ## FIM TOKEN 
-        #   
-        #   fi
-        #   ;;
         4|04|minio|MINIO)
             if verificar_docker_e_portainer_traefik; then
 
@@ -6068,16 +4897,6 @@ while true; do
             
             fi
             ;;
-        
- 
-
-        ##remover.stack)
-        ##    if verificar_docker_e_portainer_traefik; then
-        ##
-        ##        ferramenta_remover_stack
-        ##
-        ##    fi   
-        ##    ;;
 
         sair|fechar|exit|close|x)
             clear
@@ -6086,10 +4905,6 @@ while true; do
             break
             ;;
 
-
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-##                                         marca                                        ##
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
 
         mysql)
             if verificar_docker_e_portainer_traefik; then
@@ -6146,11 +4961,6 @@ while true; do
 
             fi
             ;;
-            
-
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-##                                         marca                                        ##
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
         
         evolution.v1)
             if verificar_docker_e_portainer_traefik; then
@@ -6189,10 +4999,6 @@ while true; do
 
             fi   
             ;;
-
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-##                                         marca                                        ##
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
 
         ## Reiniciar portainer
         portainer.restart)
@@ -6253,11 +5059,6 @@ while true; do
 
         # p2|P2) menu_instalador="2"
         #     ;;
-
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-##                                         marca                                        ##
-## // ## // ## // ## // ## // ## // ## // ## //## // ## // ## // ## // ## // ## // ## // ## // ##
-
 
         *)
 

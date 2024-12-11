@@ -1,0 +1,12 @@
+{
+  "name": "redirect-server",
+  "version": "1.0.0",
+  "description": "Servidor simples para redirecionar para o GitHub Raw",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Seu Nome",
+  "license": "MIT",
+  "dependencies": {}
+}

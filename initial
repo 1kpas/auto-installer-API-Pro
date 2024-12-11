@@ -1,0 +1,108 @@
+#!/bin/bash
+
+## Cores
+amarelo="\e[33m"
+verde="\e[32m"
+branco="\e[97m"
+bege="\e[93m"
+vermelho="\e[91m"
+reset="\e[0m"
+
+sudo apt update
+sudo apt upgrade -y
+
+nome_aviso(){
+
+clear
+echo ""
+echo -e "$amarelo===================================================================================================$reset"
+echo -e "$amarelo=                                                                                                 $amarelo=$reset"
+echo -e "$amarelo=                     $branco  █████╗     ██╗   ██╗    ██╗    ███████╗     ██████╗                       $amarelo=$reset"
+echo -e "$amarelo=                     $branco ██╔══██╗    ██║   ██║    ██║    ██╔════╝    ██╔═══██╗                      $amarelo=$reset"
+echo -e "$amarelo=                     $branco ███████║    ██║   ██║    ██║    ███████╗    ██║   ██║                      $amarelo=$reset"
+echo -e "$amarelo=                     $branco ██╔══██║    ╚██╗ ██╔╝    ██║    ╚════██║    ██║   ██║                      $amarelo=$reset"
+echo -e "$amarelo=                     $branco ██║  ██║     ╚████╔╝     ██║    ███████║    ╚██████╔╝                      $amarelo=$reset"
+echo -e "$amarelo=                     $branco ╚═╝  ╚═╝      ╚═══╝      ╚═╝    ╚══════╝     ╚═════╝                       $amarelo=$reset"
+echo -e "$amarelo=                                                                                                 $amarelo=$reset"
+echo -e "$amarelo===================================================================================================$reset"
+echo ""
+echo ""
+}
+
+nome_iniciando(){
+    clear
+    echo ""
+    echo -e "$amarelo===================================================================================================$reset"
+    echo -e "$amarelo=                                                                                                 $amarelo=$reset"
+    echo -e "$amarelo=                  $branco ██╗███╗   ██╗██╗ ██████╗██╗ █████╗ ███╗   ██╗██████╗  ██████╗                 $amarelo=$reset"
+    echo -e "$amarelo=                  $branco ██║████╗  ██║██║██╔════╝██║██╔══██╗████╗  ██║██╔══██╗██╔═══██╗                $amarelo=$reset"
+    echo -e "$amarelo=                  $branco ██║██╔██╗ ██║██║██║     ██║███████║██╔██╗ ██║██║  ██║██║   ██║                $amarelo=$reset"
+    echo -e "$amarelo=                  $branco ██║██║╚██╗██║██║██║     ██║██╔══██║██║╚██╗██║██║  ██║██║   ██║                $amarelo=$reset"
+    echo -e "$amarelo=                  $branco ██║██║ ╚████║██║╚██████╗██║██║  ██║██║ ╚████║██████╔╝╚██████╔╝                $amarelo=$reset"
+    echo -e "$amarelo=                  $branco ╚═╝╚═╝  ╚═══╝╚═╝ ╚═════╝╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝  ╚═════╝                 $amarelo=$reset"
+    echo -e "$amarelo=                                              WhatsTracking Installer                              $amarelo=$reset"
+    echo -e "$amarelo===================================================================================================$reset"
+    echo ""
+    echo ""
+}
+
+clear
+nome_iniciando
+echo "Iniciando o processo de instalação..."
+sleep 2
+
+# Verifica se está usando Ubuntu 20.04 ou superior
+if ! grep -q 'Ubuntu 20.04' /etc/os-release && ! grep -q 'Ubuntu 22.04' /etc/os-release; then
+    nome_aviso
+    echo -e "$vermelho Este script recomenda o uso do Ubuntu 20.04 ou superior. Encerrando... $reset"
+    exit 1
+fi
+
+# Verifica se o usuário é root
+if [ "$(id -u)" -ne 0 ]; then
+    echo -e "$vermelho Este script precisa ser executado como root. Por favor, execute novamente como root. $reset"
+    exit 1
+fi
+
+# Atualização do sistema
+sudo apt update && sudo apt upgrade -y
+
+# Instalando pacotes necessários
+pacotes=(sudo apt-utils dialog jq apache2-utils git python3 curl)
+
+for pacote in "${pacotes[@]}"; do
+    echo -e "$amarelo Instalando/verificando: $pacote $reset"
+    sudo apt install -y $pacote > /dev/null 2>&1
+    if [ $? -eq 0 ]; then
+        echo -e "$verde [ OK ] - $pacote instalado/verificado $reset"
+    else
+        echo -e "$vermelho [ ERRO ] - Falha ao instalar/verificar $pacote $reset"
+    fi
+    echo ""
+done
+
+# Verifica e remove o arquivo anterior, se existir
+if [ -e "setup" ]; then
+    echo -e "$amarelo Removendo arquivo antigo... $reset"
+    rm setup
+fi
+
+# Baixa o script do GitHubusercontent
+nome_iniciando
+echo -e "$amarelo Baixando o script do WhatsTracking... $reset"
+curl -sSL https://raw.githubusercontent.com/1kpas/auto-installer-API-Pro/main/setup -o setup
+if [ $? -eq 0 ]; then
+    echo -e "$verde [ OK ] - Script baixado com sucesso $reset"
+    chmod +x setup
+    echo -e "$amarelo Executando o script... $reset"
+    ./setup
+else
+    echo -e "$vermelho [ ERRO ] - Falha ao baixar o script $reset"
+    exit 1
+fi
+
+# Limpeza
+rm setup
+
+clear
+echo -e "$verde Instalação concluída com sucesso! $reset"
