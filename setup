@@ -4833,28 +4833,8 @@ while true; do
             fi
 
             ;;
-        #.1)
-        4|04|minio|MINIO)
-            if verificar_docker_e_portainer_traefik; then
-
-                ## INICIO TOKEN
-
-                STACK_NAME="minio"
-
-                if grep -q "Token: .\+" /root/dados_vps/dados_portainer; then
-                    ferramenta_minio
-                else
-                    APP_ORION="ferramenta_minio"
-                    verificar_arquivo
-                fi
-
-                ## FIM TOKEN
-
-            
-            fi
-            ;;
        
-        6|06|n8n|N8N)
+        4|04|n8n|N8N)
             if verificar_docker_e_portainer_traefik; then
 
                 ## INICIO TOKEN
