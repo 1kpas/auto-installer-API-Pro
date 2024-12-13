@@ -346,7 +346,7 @@ menu_instalador_pg_1(){
     echo -e "${amarelo}[ 01 ]${reset} - ${branco}Traefik & Portainer                   "
     echo -e "${amarelo}[ 02 ]${reset} - ${branco}Chatwoot                              "
     echo -e "${amarelo}[ 03 ]${reset} - ${branco}Evolution API                         "
-    echo -e "${amarelo}[ 06 ]${reset} - ${branco}N8N                                   "
+    echo -e "${amarelo}[ 04 ]${reset} - ${branco}N8N                                   "
     echo -e ""
     echo -e ""
 }
