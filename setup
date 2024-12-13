@@ -1187,7 +1187,7 @@ echo ""
 
 echo -e "\e[97mPasso$amarelo 2/5\e[0m"
 echo -e "$amarelo--> Caso não tiver um usuario do email, use o proprio email abaixo"
-echo -en "\e[33mDigite o usuário de Email (ex: danilo ou contato@dominio.com): \e[0m" && read -r user_teste
+echo -en "\e[33mDigite o usuário de Email (ex: usuario ou contato@seudominio.com.br): \e[0m" && read -r user_teste
 echo ""
 
 echo -e "\e[97mPasso$amarelo 3/5\e[0m"
