@@ -346,7 +346,6 @@ menu_instalador_pg_1(){
     echo -e "${amarelo}[ 01 ]${reset} - ${branco}Traefik & Portainer                   "
     echo -e "${amarelo}[ 02 ]${reset} - ${branco}Chatwoot                              "
     echo -e "${amarelo}[ 03 ]${reset} - ${branco}Evolution API                         "
-    echo -e "${amarelo}[ 04 ]${reset} - ${branco}N8N                                   "
     echo -e ""
     echo -e ""
 }
@@ -545,7 +544,7 @@ criar_arquivo() {
     nome_credenciais
     echo -e "\e[97mPasso$amarelo 1/3\e[0m"
     #echo -e "\e[97mObs: Coloque o https:// antes do link do portainer\e[0m"
-    read -p "Digite a Url do Portainer (ex: painel.seudominio.com.br): " PORTAINER_URL
+    read -p "Digite a Url do Portainer (ex: portainer.seudominio.com.br): " PORTAINER_URL
     echo ""
 
     echo -e "\e[97mPasso$amarelo 2/3\e[0m"
@@ -573,7 +572,7 @@ verificar_campos() {
         nome_credenciais
         echo -e "\e[97mPasso$amarelo 1/3\e[0m"
         #echo -e "\e[97mObs: Coloque o https:// antes do link do portainer\e[0m"
-        read -p "Digite a Url do Portainer (ex: painel.seudominio.com.br): " PORTAINER_URL
+        read -p "Digite a Url do Portainer (ex: portainer.seudominio.com.br): " PORTAINER_URL
         echo ""
     
         echo -e "\e[97mPasso$amarelo 2/3\e[0m"
@@ -593,7 +592,7 @@ verificar_campos() {
         nome_credenciais
         echo -e "\e[97mPasso$amarelo 1/3\e[0m"
         #echo -e "\e[97mObs: Coloque o https:// antes do link do portainer\e[0m"
-        read -p "Digite a Url do Portainer (ex: painel.seudominio.com.br): " PORTAINER_URL
+        read -p "Digite a Url do Portainer (ex: portainer.seudominio.com.br): " PORTAINER_URL
         echo ""
     
         echo -e "\e[97mPasso$amarelo 2/3\e[0m"
@@ -662,7 +661,7 @@ verificar_token() {
                 nome_credenciais
                 echo -e "\e[97mPasso$amarelo 1/3\e[0m"
                 #echo -e "\e[97mObs: Coloque o https:// antes do link do portainer\e[0m"
-                read -p "Digite a Url do Portainer (ex: painel.seudominio.com.br): " PORTAINER_URL
+                read -p "Digite a Url do Portainer (ex: portainer.seudominio.com.br): " PORTAINER_URL
                 echo ""
             
                 echo -e "\e[97mPasso$amarelo 2/3\e[0m"
@@ -1301,7 +1300,7 @@ while true; do
 
     ##Pergunta o Dominio para aplicação
     echo -e "\e[97mPasso$amarelo 1/4\e[0m"
-    echo -en "\e[33mDigite o Dominio para o Portainer (ex: painel.seudominio.com.br): \e[0m" && read -r url_portainer
+    echo -en "\e[33mDigite o Dominio para o Portainer (ex: portainer.seudominio.com.br): \e[0m" && read -r url_portainer
     echo ""
 
     ## Pergunta o Nome do Servidor
@@ -2135,7 +2134,7 @@ while true; do
 
     ##Pergunta o Dominio para aplicação
     echo -e "\e[97mPasso$amarelo 1/6\e[0m"
-    echo -en "\e[33mDigite o Dominio para o Chatwoot (ex: chat.seudominio.com.br): \e[0m" && read -r url_chatwoot
+    echo -en "\e[33mDigite o Dominio para o Chatwoot (ex: chatwoot.seudominio.com.br): \e[0m" && read -r url_chatwoot
     echo ""
     
     ## Pega o nome do dominio para ser o nome da empresa
