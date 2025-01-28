@@ -2413,7 +2413,7 @@ services:
 ## --------------------------- ORION --------------------------- ##
 
   chatwoot_sidekiq:
-    image: chatwoot/chatwoot:latest ## Versão do Chatwoot
+    image: sendingtk/chatwoot:v3.14.0
     command: bundle exec sidekiq -C config/sidekiq.yml
 
     volumes:
