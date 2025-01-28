@@ -1824,7 +1824,7 @@ version: "3.7"
 services:
 
   postgres:
-    image: postgres:14 ## Versão do postgres
+    image: pgvector/pgvector:pg17
 
     volumes:
       - postgres_data:/var/lib/postgresql/data
