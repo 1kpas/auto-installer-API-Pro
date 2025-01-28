@@ -2309,11 +2309,8 @@ encryption_key=$(openssl rand -hex 16)
 cat > chatwoot.yaml <<EOL
 version: "3.7"
 services:
-
-## --------------------------- ORION --------------------------- ##
-
   chatwoot_app:
-    image: sendingtk/chatwoot:v3.14.0
+    image: chatwoot/chatwoot:latest
     command: bundle exec rails s -p 3000 -b 0.0.0.0
     entrypoint: docker/entrypoints/rails.sh
 
@@ -2409,11 +2406,8 @@ services:
         - traefik.http.services.chatwoot_app.loadbalancer.passhostheader=true 
         - traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https
         - traefik.http.routers.chatwoot_app.middlewares=sslheader@docker
-
-## --------------------------- ORION --------------------------- ##
-
   chatwoot_sidekiq:
-    image: sendingtk/chatwoot:v3.14.0
+    image: chatwoot/chatwoot:latest
     command: bundle exec sidekiq -C config/sidekiq.yml
 
     volumes:
@@ -2497,9 +2491,6 @@ services:
         limits:
           cpus: "1"
           memory: 1024M
-
-## --------------------------- ORION --------------------------- ##
-
 volumes:
   chatwoot_storage:
     external: true
