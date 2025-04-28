@@ -105,20 +105,6 @@ instalado_msg() {
     echo ""
 }
 
-## Mensagem de Testando
-
-nome_testando() {
-    clear
-    echo ""
-    echo -e "$branco               ████████╗███████╗███████╗████████╗ █████╗ ███╗   ██╗██████╗  ██████╗ \e[0m"
-    echo -e "$branco               ╚══██╔══╝██╔════╝██╔════╝╚══██╔══╝██╔══██╗████╗  ██║██╔══██╗██╔═══██╗\e[0m"
-    echo -e "$branco                  ██║   █████╗  ███████╗   ██║   ███████║██╔██╗ ██║██║  ██║██║   ██║\e[0m"
-    echo -e "$branco                  ██║   ██╔══╝  ╚════██║   ██║   ██╔══██║██║╚██╗██║██║  ██║██║   ██║\e[0m"
-    echo -e "$branco                  ██║   ███████╗███████║   ██║   ██║  ██║██║ ╚████║██████╔╝╚██████╔╝\e[0m"
-    echo -e "$branco                  ╚═╝   ╚══════╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝  ╚═════╝ \e[0m"
-    echo ""
-    echo ""
-}
 nome_credenciais() {
     clear
     echo ""
@@ -700,51 +686,6 @@ verificar_docker_e_portainer_traefik() {
     return 0
 }
 
-## Verifica se existe Minio
-verificar_antes_se_tem_minio() {
-
-    ## Verifica se o Portainer está instalado
-    if ! docker ps -a --format "{{.Names}}" | grep -q "minio"; then
-        clear
-        erro_msg
-        echo -e "Ops, parece que você não instalou a opção \e[32m[ 4 ] - MinIO${reset} ${branco}do nosso instalador.${reset}"
-        echo "Instale antes de tentar instalar esta aplicação."
-
-        echo ""
-        echo "Voltando ao menu em 5 segundos."
-        sleep 5
-
-        nome_menu
-        menu_instalador
-
-        return 1
-    fi
-
-    return 0
-}
-
-## Verifica se existe rabbitMQ
-verificar_antes_se_tem_rabbitmq() {
-
-    ## Verifica se o Portainer está instalado
-    if ! docker ps -a --format "{{.Names}}" | grep -q "rabbitmq"; then
-        clear
-        erro_msg
-        echo -e "Ops, parece que você não instalou a opção \e[32m[ 14 ] - RabbitMQ${reset} ${branco}do nosso instalador.${reset}"
-        echo "Instale antes de tentar instalar esta aplicação."
-
-        echo ""
-        echo "Voltando ao menu em 5 segundos."
-        sleep 5
-
-        nome_menu
-        menu_instalador
-
-        return 1
-    fi
-
-    return 0
-}
 
 ## Verifica se existe Minio RabbitMQ e Chatwoot 
 verificar_antes_se_tem_minio_e_rabbitmq_e_chatwoot() {
@@ -753,23 +694,6 @@ verificar_antes_se_tem_minio_e_rabbitmq_e_chatwoot() {
         clear
         erro_msg
         echo -e "Ops, parece que você não instalou a opção \e[32m[ 4 ] - MinIO${reset} ${branco}do nosso instalador.${reset}"
-        echo "Instale antes de tentar instalar esta aplicação."
-
-        echo ""
-        echo "Voltando ao menu em 5 segundos."
-        sleep 5
-
-        nome_menu
-        menu_instalador
-
-        return 1
-    fi
-
-    ## Verifica se o rabbitmq está instalado
-    if ! docker ps -a --format "{{.Names}}" | grep -q "rabbitmq"; then
-        clear
-        erro_msg
-        echo -e "Ops, parece que você não instalou a opção \e[32m[ 14 ] - RabbitMQ${reset} ${branco}do nosso instalador.${reset}"
         echo "Instale antes de tentar instalar esta aplicação."
 
         echo ""
@@ -823,17 +747,6 @@ verificar_container_pgvector() {
     fi
 }
 
-## Verificar Container Mysql
-
-verificar_container_mysql() {
-    if docker ps -q --filter "name=mysql" | grep -q .; then
-        echo "Container MySQL está em execução."
-        return 0
-    else
-        echo "Container MySQL não está em execução."
-        return 1
-    fi
-}
 
 ## Verificar Container Redis
 
@@ -923,46 +836,6 @@ pegar_senha_pgvector() {
     done
 }
 
-pegar_user_senha_rabbitmq() {
-    while :; do
-        if [ -f /root/rabbitmq.yaml ]; then
-            user_rabbit_mqs=$(grep "RABBITMQ_DEFAULT_USER" /root/rabbitmq.yaml | awk -F ': ' '{print $2}')
-            senha_rabbit_mqs=$(grep "RABBITMQ_DEFAULT_PASS" /root/rabbitmq.yaml | awk -F ': ' '{print $2}')
-            break
-        else
-            sleep 5
-            echo "erro"
-        fi
-    done
-}
-
-## Pegar senha Mysql
-
-pegar_senha_mysql() {
-    while :; do
-        if [ -f /root/mysql.yaml ]; then
-            senha_mysql=$(grep "MYSQL_ROOT_PASSWORD" /root/mysql.yaml | awk -F '=' '{print $2}')
-            break
-        else
-            sleep 5
-        fi
-    done
-}
-
-## Pegar senha Minio
-
-pegar_senha_minio() {
-    user_minio=$(grep "MINIO_ROOT_USER" /root/minio.yaml | awk -F '=' '{print $2}')
-    senha_minio=$(grep "MINIO_ROOT_PASSWORD" /root/minio.yaml | awk -F '=' '{print $2}')
-    url_minio=$(grep "MINIO_BROWSER_REDIRECT_URL" /root/minio.yaml | awk -F '=' '{print $2}' | sed 's/https:\/\///')
-    url_s3=$(grep "MINIO_SERVER_URL" /root/minio.yaml | awk -F '=' '{print $2}' | sed 's/https:\/\///')
-}
-
-## Pegar link S3
-
-pegar_link_s3() {
-    url_s3=$(grep "MINIO_SERVER_URL" /root/minio.yaml | awk -F '=' '{print $2}' | sed 's/https:\/\///')
-}
 
 ## Criadores de banco de dados Postgres
 
@@ -1012,102 +885,6 @@ criar_banco_postgres_da_stack() {
     done
 }
 
-
-
-## Criar banco do Zep
-criar_banco_pgvector_da_stack () {
-    while :; do
-        if docker ps -q --filter "name=^pgvector_pgvector" | grep -q .; then
-            CONTAINER_PGVECTOR_ID=$(docker ps -q --filter "name=^pgvector_pgvector")
-
-            # Verificar se o banco de dados já existe
-            docker exec "$CONTAINER_PGVECTOR_ID" psql -U postgres -lqt | cut -d \| -f 1 | grep -qw "$1"
-
-
-            if [ $? -eq 0 ]; then
-                echo "O banco de dados $1 já existe."
-
-                read -p "Deseja apagar e criar um novo banco de dados? (Y/N): " resposta
-                if [ "$resposta" == "Y" ] || [ "$resposta" == "y" ]; then
-                    # Apagar o banco de dados
-                    docker exec "$CONTAINER_PGVECTOR_ID" psql -U postgres -c "DROP DATABASE IF EXISTS $1;"
-                    echo "Banco de dados $1 apagado com sucesso."
-                    
-                    # Criar o banco de dados novamente
-                    docker exec "$CONTAINER_PGVECTOR_ID" psql -U postgres -c "CREATE DATABASE $1;"
-                    
-                    echo "Banco de dados $1 criado com sucesso."
-                else
-                    echo "Usando o banco de dados existente."
-                fi
-                break
-            else
-                # Criar o banco de dados
-                docker exec "$CONTAINER_PGVECTOR_ID" psql -U postgres -c "CREATE DATABASE $1;"
-                
-                # Verificar novamente se o banco de dados foi criado com sucesso
-                docker exec "$CONTAINER_PGVECTOR_ID" psql -U postgres -lqt | cut -d \| -f 1 | grep -qw "$1"
-
-                if [ $? -eq 0 ]; then
-                    echo "Banco de dados $1 criado com sucesso."
-                    break
-                else
-                    echo "Erro ao criar o banco de dados. Tentando novamente..."
-                fi
-            fi
-        else
-            sleep 5
-        fi
-    done
-}
-## Criadores de banco de dados Mysql
-
-## Criar banco do Mautic
-criar_banco_mysql_da_stack() {
-    dados
-    pegar_senha_mysql
-    while :; do
-        if CONTAINER_ID=$(docker ps -q --filter "name=^mysql_mysql"); then
-            if [ -n "$CONTAINER_ID" ]; then
-                # Verificar se o banco de dados já existe
-                if docker exec -it "$CONTAINER_ID" mysql -u root -p"$senha_mysql" -e "SHOW DATABASES LIKE '$1';" | grep -qw "$1"; then
-                    echo "O banco de dados $1 já existe."
-
-                    read -p "Deseja apagar e criar um novo banco de dados? (Y/N): " resposta
-                    if [ "$resposta" == "Y" ] || [ "$resposta" == "y" ]; then
-                        # Apagar o banco de dados
-                        docker exec -it "$CONTAINER_ID" mysql -u root -p"$senha_mysql" -e "DROP DATABASE $1;"
-                        echo "Banco de dados $1 apagado com sucesso."
-
-                        # Criar o banco de dados novamente
-                        docker exec -it "$CONTAINER_ID" mysql -u root -p"$senha_mysql" -e "CREATE DATABASE $1;"
-                        echo "Banco de dados $1 criado com sucesso."
-                    else
-                        echo "Usando o banco de dados existente."
-                    fi
-                    break
-                else
-                    # Criar o banco de dados
-                    docker exec -it "$CONTAINER_ID" mysql -u root -p"$senha_mysql" -e "CREATE DATABASE $1;"
-                    
-                    # Verificar novamente se o banco de dados foi criado com sucesso
-                    if docker exec -it "$CONTAINER_ID" mysql -u root -p"$senha_mysql" -e "SHOW DATABASES LIKE '$1';" | grep -qw "$1"; then
-                        echo "Banco de dados $1 criado com sucesso."
-                        break
-                    else
-                        echo "Erro ao criar o banco de dados. Tentando novamente..."
-                    fi
-                fi
-            else
-                echo "Container MySQL não encontrado. Tentando novamente..."
-                sleep 5
-            fi
-        else
-            echo "Container MySQL não encontrado. Tentando novamente..."
-            sleep 5
-        fi
-    done
-}
 
 ## Instalação das Ferramentas
 
